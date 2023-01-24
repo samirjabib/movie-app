@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser")
 const cors = require("cors")
 const http = require("http");
 const { db } = require("./utils/database");
+const { initModels } = require("./models/initModels");
 
 
 const app = express();
@@ -31,6 +32,8 @@ db.sync()
     .catch( err => {
         console.log(err)
     })
+
+initModels()
 
 
 app.listen( 3000,() => {

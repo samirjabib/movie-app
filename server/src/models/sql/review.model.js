@@ -26,6 +26,10 @@ const Reviews = db.define("reviews",{
         type:DataTypes.STRING,
         allowNull:false
     },
+    mediaPoster:{
+        type:String,
+        allowNull:false
+    },
     userId:{
         type:DataTypes.UUID,
         allowNull:false,

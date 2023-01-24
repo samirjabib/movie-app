@@ -27,6 +27,10 @@ const Favorites = db.define("favorites",{
         type:String,
         allowNull:false
     },
+    mediaRated:{
+        type:String,
+        allowNull:false
+    },
     userId:{
         type:DataTypes.UUID,
         allowNull:false,
