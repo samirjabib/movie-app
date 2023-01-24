@@ -4,6 +4,7 @@ const cors = require("cors")
 const http = require("http");
 const { db } = require("./utils/database");
 const { initModels } = require("./models/initModels");
+const { config } = require("dotenv");
 
 
 const app = express();
@@ -25,15 +26,25 @@ db.authenticate()
         console.log(err)
     })
 
-db.sync()
+db.sync( 
+    {force:true}
+)
     .then( () => {
-        console.log('db sync')
+        console.log('db has sync')
     })
     .catch( err => {
         console.log(err)
     })
 
 initModels()
+
+
+app.get('/',(req, res) => {
+    res.status(200).json({
+        message: 'OK!',
+        users: `localhost:${config.port}/api/v1/`
+    })
+})
 
 
 app.listen( 3000,() => {

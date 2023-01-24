@@ -1,5 +1,5 @@
-const { Favorites } = require("./sql/favorite.model");
-const { Reviews } = require("./sql/review.model");
+// const { Favorites } = require("./sql/favorite.model");
+// const { Reviews } = require("./sql/review.model");
 const { Users } = require("./sql/user.model");
 
 
