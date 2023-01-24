@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../../utils/database");
+const { Users } = require("./user.model");
 
 const Reviews = db.define("reviews",{
     id:{
@@ -24,6 +25,15 @@ const Reviews = db.define("reviews",{
     mediaTitle:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    userId:{
+        type:DataTypes.UUID,
+        allowNull:false,
+        field:'user_id',
+        references:{
+            key:'id',
+            model:Users
+        }
     }
     
 })  
