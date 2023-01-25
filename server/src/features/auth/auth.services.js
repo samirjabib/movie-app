@@ -48,6 +48,7 @@ const register = async(body) => {
 
 
 const login = async(body) => {
+
     const data = await Users.findOne({
         where:{
             email:body.email,
@@ -83,7 +84,7 @@ const login = async(body) => {
 }
 
 
-const getInfo = async(id) => {
+const getInfo = async(id, password, newPassword) => {
     const data = await Users.findOne({
         where:{
             id,
@@ -96,10 +97,37 @@ const getInfo = async(id) => {
 }
 
 
-const updatePassword = (body) => {
-    console.log(body)
-
+const updatePassword = async(body) => {
     
+    const { id, password, newPassword } = body 
+
+
+      const data = await Users.findOne({
+        where:{
+            id,
+            status:"active"
+        }
+    })
+
+    const samePasswords = await compare(password, data.password)
+
+    if(!samePasswords){
+        new AppError(
+            'PASSWORDS DONT MATCH',
+            StatusCodes.BAD_REQUEST,
+            true
+        )
+    }
+
+
+    const newData = await Users.update({
+        status:'password update',
+        password: newPassword
+    })
+
+    newData.password = undefined
+
+    return newData
 
 }
 
