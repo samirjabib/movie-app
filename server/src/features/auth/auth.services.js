@@ -1,4 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
+const uuid = require("uuid")
 
 //Handlers
 const { AppError } = require('../../helpers/appError')
@@ -30,17 +31,21 @@ const register = async(body) => {
     const hashPassword = await encrypt(password)
 
     const data = await Users.create({
+        id:uuid.v4(),
         displayName,
         email,
-        hashPassword
+        password: hashPassword
     })
 
     data.password = undefined
 
     const user = {
-        data,
+        ...data,
         token: await tokenSign(data)
     }
+
+
+
 
 
 

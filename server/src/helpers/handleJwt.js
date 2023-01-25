@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const JWT_SECRET = process.env.JWT_SECRET
+const { config } = require("../config")
 
 
 const tokenSign = async(user) => {
@@ -8,7 +8,7 @@ const tokenSign = async(user) => {
             _id: user._id,
             role:user.role
         },
-        JWT_SECRET,
+        config.JWT_SECRET,
         {
             expiresIn:"2h",
         }
@@ -20,7 +20,7 @@ const tokenSign = async(user) => {
 
 const verifyToken = async(tokenJwt) => {
     try {
-        return jwt.verify(tokenJwt, JWT_SECRET)
+        return jwt.verify(tokenJwt, config.JWT_SECRET)
     } catch (error) {
         return null
     }
@@ -29,4 +29,4 @@ const verifyToken = async(tokenJwt) => {
 module.exports = {
     tokenSign,
     verifyToken
-}
+}   

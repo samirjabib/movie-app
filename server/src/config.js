@@ -7,7 +7,8 @@ const config = {
         username: process.env.DB_USER,
         password:process.env.DB_PASS,
         dbName:process.env.DB_NAME,
-    }
+    },
+    JWT_SECRET:process.env.JWT_SECRET
 }
 
 module.exports = { config }

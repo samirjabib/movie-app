@@ -13,7 +13,7 @@ const register = async (req, res, next) => {
         }
 
         res.status(StatusCodes.CREATED).json({
-            ...response
+            response
         })
     } catch (error) {
         next(error)
@@ -29,7 +29,7 @@ const login = async(req, res, next) => {
         if(error){
             return next(response)
         }
-        
+
         res.status(StatusCodes.CREATED).json({
             ...response
         })
