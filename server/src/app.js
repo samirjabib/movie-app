@@ -63,6 +63,8 @@ app.all('*', (req, res, next) => {
   })
 
 
+// Global error Handler
+app.use('*', globalErrorHandler)
 
 
 app.listen( config.port ,() => {
