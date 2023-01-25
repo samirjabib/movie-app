@@ -2,10 +2,14 @@ const express = require("express")
 const cookieParser = require("cookie-parser")
 const cors = require("cors")
 const http = require("http");
+
+
 const { db } = require("./utils/database");
 const { initModels } = require("./models/initModels");
 const { config } = require("./config");
 const { mainRouter } = require("./router/main.router");
+const { AppError } = require("./helpers/appError")
+const {  globalErrorHandler } = require("./helpers/globalErrorHandler")
 
 const app = express();
 
@@ -48,6 +52,14 @@ app.use(cookieParser()) //Manejo de cookies
 
 app.use('/api/v1', mainRouter)
 
+// Error endpoint not found
+app.all('*', (req, res, next) => {
+    return next(new AppError(
+      `${req.method} ${req.url} not found in this server`,
+      StatusCodes.NOT_FOUND,
+      true
+    ))
+  })
 
 
 
