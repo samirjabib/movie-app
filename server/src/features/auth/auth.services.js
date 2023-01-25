@@ -44,11 +44,6 @@ const register = async(body) => {
         token: await tokenSign(data)
     }
 
-
-
-
-
-
     return user
 }
 
