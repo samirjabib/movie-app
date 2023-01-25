@@ -8,6 +8,6 @@ const authRouter = require("express").Router()
 
 authRouter.post('/register', validateRegister, register)
 authRouter.post('/login', validateLogin, login)
-
+authRouter.get('/:id', )
 
 module.exports = { authRouter }

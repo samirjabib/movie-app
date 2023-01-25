@@ -51,8 +51,6 @@ const register = async(body) => {
 
 
 const login = async(body) => {
-
-
     const data = await Users.findOne({
         where:{
             email:body.email,
@@ -82,7 +80,7 @@ const login = async(body) => {
 
     
     return{
-        ...data,
+        data,
         token: await tokenSign(data)
     }
 
@@ -91,7 +89,25 @@ const login = async(body) => {
 }
 
 
+const getInfo = async(id) => {
+    const data = await Users.findOne({
+        where:{
+            id,
+            status:"active"
+        }
+    })
+
+    data.password = undefined
+
+
+    return data
+}
+
+
 module.exports = {
     login,
-    register
+    register,
+    getInfo,
+
+
 }

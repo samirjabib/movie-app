@@ -1,5 +1,6 @@
 const { response } = require("express")
 const { StatusCodes } = require("http-status-codes")
+const { Users } = require("../../models/sql/user.model")
 const authServices = require('./auth.services')
 
 const register = async (req, res, next) => {
@@ -38,7 +39,15 @@ const login = async(req, res, next) => {
     }
 }
 
-
+const getInfo = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        
+        const response = await authServices.getInfo()
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 module.exports = { 
     register,
