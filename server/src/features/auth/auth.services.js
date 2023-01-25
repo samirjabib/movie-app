@@ -50,17 +50,39 @@ const register = async(body) => {
 
 const login = async(body) => {
 
-    console.log(body)
 
     const data = await Users.findOne({
         where:{
-            email:body.email
+            email:body.email,
+            status:"active"
         }
     })
 
+    if(!data){
+        return new AppError(
+            'USER_OR_PASSWORD_FAIL',
+            StatusCodes.BAD_REQUEST,
+            true
+        )
+    }
 
-    console.log(data)
+    const samePasswords = await compare(password, data.password)
 
+    if(!samePasswords){
+        return new AppError(
+            'THE PASSWORD DONT MATCH',
+            StatusCodes.BAD_REQUEST,
+            true
+        )
+    }
+
+    data.password = undefined
+
+    
+    return{
+        ...data,
+        token:tokenSign(data)
+    }
 
 
     return data
