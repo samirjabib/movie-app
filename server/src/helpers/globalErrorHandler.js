@@ -2,7 +2,7 @@ const { config } = require("../config")
 
 const status = config.nodeEnv
 
-const sendErrorProduction = (err, res, res) => {
+const sendErrorProduction = (err, req, res) => {
     const statusCode = res.statusCode || 500
 
     res.status(statusCode).json({
@@ -12,7 +12,7 @@ const sendErrorProduction = (err, res, res) => {
 }
 
 
-const sendErrorDevelopment = (err, res , next) => {
+const sendErrorDevelopment = (err, req , res) => {
     const statusCode = res.statusCode || 500
 
     res.status(statusCode).json({

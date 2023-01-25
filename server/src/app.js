@@ -10,6 +10,7 @@ const { config } = require("./config");
 const { mainRouter } = require("./router/main.router");
 const { AppError } = require("./helpers/appError")
 const {  globalErrorHandler } = require("./helpers/globalErrorHandler")
+const { StatusCodes } = require('http-status-codes')
 
 const app = express();
 
