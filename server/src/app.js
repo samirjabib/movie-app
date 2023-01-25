@@ -65,6 +65,6 @@ app.all('*', (req, res, next) => {
 
 
 
-app.listen( 3000,() => {
-    console.log('server on')
+app.listen( config.port ,() => {
+    console.log(`server run on port ${config.port}`)
 })
