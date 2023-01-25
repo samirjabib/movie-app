@@ -136,5 +136,6 @@ module.exports = {
     login,
     register,
     getInfo,
+    updatePassword,
 
 }

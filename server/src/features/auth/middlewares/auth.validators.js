@@ -1,3 +1,4 @@
+const { NETWORK_AUTHENTICATION_REQUIRED } = require('http-status-codes')
 const Joi = require('joi')
 
 const registerSchema = Joi.object({
@@ -29,6 +30,18 @@ const loginSchema = Joi.object({
         .required()
 })
 
+
+const updatePasswordSchema = Joi.object({
+    password:Joi.string()
+        .min(3)
+        .max(50)
+        .required(),
+    newPassword:Joi.string()
+    .min(3)
+    .max(50)
+    .required()
+})
+
 const validateRegister = ( req, res, next ) => {
     const data = req.body
 
@@ -53,4 +66,22 @@ const validateLogin = (req, res, next) => {
     next()
 }
 
-module.exports = { validateRegister, validateLogin }
+
+const validateUpdatePassword = (req, res, next) => {
+    const data = req.body
+
+    const { error } = updatePasswordSchema.validate(data, { abortEarly:false})
+
+    if(error){
+        return res.json( {error:error.details })
+    }
+
+    next()
+}
+
+module.exports = { 
+    validateRegister, 
+    validateLogin,
+    validateUpdatePassword
+
+}
