@@ -20,21 +20,31 @@ const register = async(body) => {
     })
 
     if(userExists){
-        return new AppError)
+        return new AppError(
         'USER_ALREADY_EXIST',
         StatusCodes.BAD_REQUEST,
         true
+        )
     }
 
-    const hashPassword =
+    const hashPassword = await encrypt(password)
 
     const data = await Users.create({
-        ...body
+        displayName,
+        email,
+        hashPassword
     })
 
-    console.log(data)
+    data.password = undefined
 
-    return data
+    const user = {
+        data,
+        token: await tokenSign(data)
+    }
+
+
+
+    return user
 }
 
 
