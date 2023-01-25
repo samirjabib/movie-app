@@ -9,7 +9,6 @@ const { tokenSign } = require('../../helpers/handleJwt')
 //Models
 const { Users } = require('../../models/sql/user.model')
 
-
 const register = async(body) => {
 
     const { displayName, email, password } = body
@@ -44,8 +43,6 @@ const register = async(body) => {
         token: await tokenSign(data)
     }
 
-    console.log(user)
-
     return user
 }
 
@@ -78,13 +75,10 @@ const login = async(body) => {
 
     data.password = undefined
 
-    
     return{
         data,
         token: await tokenSign(data)
     }
-
-
 
 }
 
@@ -95,12 +89,18 @@ const getInfo = async(id) => {
             id,
             status:"active"
         }
-    })
-
+    });
     data.password = undefined
 
-
     return data
+}
+
+
+const updatePassword = (body) => {
+    console.log(body)
+
+    
+
 }
 
 
@@ -108,6 +108,5 @@ module.exports = {
     login,
     register,
     getInfo,
-
 
 }
