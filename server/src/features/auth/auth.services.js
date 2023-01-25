@@ -40,9 +40,11 @@ const register = async(body) => {
     data.password = undefined
 
     const user = {
-        ...data,
+        data,
         token: await tokenSign(data)
     }
+
+    console.log(user)
 
     return user
 }
@@ -81,11 +83,10 @@ const login = async(body) => {
     
     return{
         ...data,
-        token:tokenSign(data)
+        token: await tokenSign(data)
     }
 
 
-    return data
 
 }
 

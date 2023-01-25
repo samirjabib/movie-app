@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken")
 const { config } = require("../config")
 
 
-const tokenSign = async(user) => {
+const tokenSign = async (user) => {
+    
     const sign = await jwt.sign(
         {
             _id: user._id,
@@ -29,4 +30,4 @@ const verifyToken = async(tokenJwt) => {
 module.exports = {
     tokenSign,
     verifyToken
-}   
+}
