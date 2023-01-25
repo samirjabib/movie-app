@@ -49,15 +49,6 @@ app.use(cookieParser()) //Manejo de cookies
 app.use('/api/v1', mainRouter)
 
 
-// Error endpoint not found
-app.all('*', (req, res) => {
-	handleHttpError(
-		res,
-		`${req.method} ${req.url} not found in this server`,
-		404
-	);
-});
-
 
 
 
