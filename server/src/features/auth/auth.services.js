@@ -120,14 +120,10 @@ const updatePassword = async(body) => {
     }
 
 
-    const newData = await Users.update({
-        status:'password update',
-        password: newPassword
-    })
+    //TODO TERMINAR FUNCIONALIDAD
 
-    newData.password = undefined
 
-    return newData
+    return data
 
 }
 
@@ -137,5 +133,4 @@ module.exports = {
     register,
     getInfo,
     updatePassword,
-
 }
