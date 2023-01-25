@@ -84,13 +84,14 @@ const login = async(body) => {
 }
 
 
-const getInfo = async(id, password, newPassword) => {
+const getInfo = async(id) => {
     const data = await Users.findOne({
         where:{
             id,
             status:"active"
         }
     });
+
     data.password = undefined
 
     return data

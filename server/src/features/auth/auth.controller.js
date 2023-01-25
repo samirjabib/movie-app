@@ -41,7 +41,7 @@ const getInfo = async (req, res, next) => {
     try {
         const { id } = req.params
         
-        const response = await authServices.getInfo()
+        const response = await authServices.getInfo(id)
 
         const error = response.stack
         if(error){
