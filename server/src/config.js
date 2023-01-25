@@ -1,5 +1,5 @@
 require('dotenv').config()
-console.log(process.env) // remove this after you've confirmed it is working
+console.log(process.env.DB_NAME) // remove this after you've confirmed it is working
 
 const config = {
     port:process.env.PORT || 9000,

@@ -24,11 +24,11 @@ const Favorites = db.define("favorites",{
         allowNull:false
     },
     mediaPoster:{
-        type:String,
+        type:DataTypes.STRING,
         allowNull:false
     },
     mediaRated:{
-        type:String,
+        type:DataTypes.STRING,
         allowNull:false
     },
     userId:{

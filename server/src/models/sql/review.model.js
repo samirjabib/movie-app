@@ -27,7 +27,7 @@ const Reviews = db.define("reviews",{
         allowNull:false
     },
     mediaPoster:{
-        type:String,
+        type:DataTypes.STRING,
         allowNull:false
     },
     userId:{

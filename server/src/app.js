@@ -4,18 +4,10 @@ const cors = require("cors")
 const http = require("http");
 const { db } = require("./utils/database");
 const { initModels } = require("./models/initModels");
-const { config } = require("dotenv");
-
+const { config } = require("./config");
+const { mainRouter } = require("./router/main.router");
 
 const app = express();
-
-
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended:false})) //Analiza las request con cargas utiles
-app.use(cookieParser()) //Manejo de cookies
-
-// const server = http.createServer(app) //Crear server web node
 
 
 db.authenticate()
@@ -27,7 +19,7 @@ db.authenticate()
     })
 
 db.sync( 
-    {force:true}
+    // {force:true}
 )
     .then( () => {
         console.log('db has sync')
@@ -45,6 +37,28 @@ app.get('/',(req, res) => {
         users: `localhost:${config.port}/api/v1/`
     })
 })
+
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended:false})) //Analiza las request con cargas utiles
+app.use(cookieParser()) //Manejo de cookies
+
+// const server = http.createServer(app) //Crear server web node
+
+
+app.use('/api/v1', mainRouter)
+
+
+// Error endpoint not found
+app.all('*', (req, res) => {
+	handleHttpError(
+		res,
+		`${req.method} ${req.url} not found in this server`,
+		404
+	);
+});
+
+
 
 
 app.listen( 3000,() => {
