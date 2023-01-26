@@ -70,6 +70,24 @@ const getGneres = async( req, res , next) => {
 }
 
 
+const getDetail = async(req, res, next) => {
+    try {
+        const { mediaType, mediaId } = req.params
+        const { user } = req
+
+
+        const response = await mediaServices.getDetails(mediaType, mediaId, user)
+        
+        const error = response.stack
+        if(error){
+            return next(response)
+        }
+
+    } catch (error){
+        next(error)
+    }
+}
+
 
 
 
@@ -77,6 +95,7 @@ module.exports = {
     searchMovies,
     getList,
     getGneres,
-    
+    getDetail
+
 
 }

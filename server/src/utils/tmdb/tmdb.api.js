@@ -1,5 +1,5 @@
 const axiosClient = require('../axios.client')
-const { tmdbEndPoints } = require('./tmbdb.endpoints')
+const { tmdbEndpoints } = require('./tmbdb.endpoints')
 
 
 const tmdbApi = {
