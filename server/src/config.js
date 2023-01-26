@@ -8,7 +8,9 @@ const config = {
         password:process.env.DB_PASS,
         dbName:process.env.DB_NAME,
     },
-    JWT_SECRET:process.env.JWT_SECRET
+    JWT_SECRET:process.env.JWT_SECRET,
+    TMBD_URL:process.env.TMBD_URL,
+    TMDB_TOKEN:process.env.TMDB_TOKEN
 }
 
 module.exports = { config }
