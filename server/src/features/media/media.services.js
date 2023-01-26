@@ -14,5 +14,23 @@ const searchMovies = async({ mediaType, query, page }) => {
 }
 
 
+const getList = async({page, mediaType, mediaCategory}) => {
 
-module.exports = { searchMovies }
+    const response = await tmdbApi.mediaList({page, mediaType, mediaCategory})
+
+    return response
+}
+
+const getGneres = async(mediaType) => {
+
+    const data = await tmdbApi.mediaGenres({mediaType})
+
+    return data
+}
+
+
+module.exports = { 
+    searchMovies, 
+    getList,
+    getGneres
+}
