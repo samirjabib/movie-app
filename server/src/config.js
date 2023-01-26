@@ -10,7 +10,8 @@ const config = {
     },
     JWT_SECRET:process.env.JWT_SECRET,
     TMBD_URL:process.env.TMBD_URL,
-    TMDB_TOKEN:process.env.TMDB_TOKEN
+    TMDB_TOKEN:process.env.TMDB_TOKEN,
+    TMDB_KEY:process.env.TMDB_KEY
 }
 
 module.exports = { config }
