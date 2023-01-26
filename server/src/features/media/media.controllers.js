@@ -83,6 +83,10 @@ const getDetail = async(req, res, next) => {
             return next(response)
         }
 
+        res.status(StatusCodes.OK).json(
+            response
+        )
+
     } catch (error){
         next(error)
     }
