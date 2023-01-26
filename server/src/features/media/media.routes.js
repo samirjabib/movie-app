@@ -1,7 +1,9 @@
 const mediaRouter = require('express').Router()
 
+const { searchMovies } = require('./media.controllers')
 
-mediaRouter.get("/search")
+
+mediaRouter.get("/", searchMovies )
 
 
 
