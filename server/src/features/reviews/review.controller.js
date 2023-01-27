@@ -26,7 +26,9 @@ const createReview = async(req, res, next) => {
 const removeReview = async(req, res, next) => {
     try {
         const { reviewId } = req.params
-        const response = await reviewsServices.removeReview(reviewId)
+        const { user } = req
+
+        const response = await reviewsServices.removeReview(reviewId, user)
         
         const error = response.stack
         if(error){
@@ -34,7 +36,7 @@ const removeReview = async(req, res, next) => {
         }
 
         res.status(StatusCodes.NO_CONTENT).json(
-            response
+            { status:'product_deleted'}
         )
     } catch (error) {
         next(error)
@@ -42,12 +44,30 @@ const removeReview = async(req, res, next) => {
 }
 
 
-const getReviewsOfUser = async() => {
+const getReviewsOfUser = async(req, res, next) => {
+    try {
+        const { user } = req
 
+        const response = await reviewsServices.getReviewsOfUser(user)
+
+        const error = response.stack
+        if(error){
+            return next(response)
+        }
+
+        res.status(StatusCodes.OK).json({
+            response
+        })
+        
+    } catch (error) {
+        next(error)
+    }
 }
 
 
 
 module.exports = {
-    createReview
+    createReview,
+    removeReview,
+    getReviewsOfUser,
 }
