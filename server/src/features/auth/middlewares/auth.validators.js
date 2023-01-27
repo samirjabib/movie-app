@@ -1,4 +1,3 @@
-const { NETWORK_AUTHENTICATION_REQUIRED } = require('http-status-codes')
 const Joi = require('joi')
 
 const registerSchema = Joi.object({

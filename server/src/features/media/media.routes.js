@@ -8,7 +8,6 @@ const {
 
 } = require('./media.controllers')
 
-const { getGneres } = require('./media.services')
 
 
 mediaRouter.get("/search", searchMovies )
