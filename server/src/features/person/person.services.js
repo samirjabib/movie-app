@@ -18,6 +18,9 @@ const personMedias = async(personId) => {
 }
 
 
+
+
+
 module.exports = {
     personDetail,
     personMedias
