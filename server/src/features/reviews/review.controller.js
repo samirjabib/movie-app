@@ -17,3 +17,9 @@ const createReview = (req, res, next) => {
         
     }
 }
+
+
+
+module.exports = {
+    createReview
+}
