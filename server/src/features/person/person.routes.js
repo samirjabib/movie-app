@@ -1,10 +1,17 @@
-const { Router } = require('express')
+
+const { 
+    personDetail,
+    personMedias
+} = require('./person.controller')
+
 
 const personRouter = require('express').Router()
 
+personRouter.get("/:personId/medias", personDetail)
+
+personRouter.get("/:personId", personMedias )
 
 
-
-personRouter.get("/:personId/medias", )
-
-Router.get("/:personId", )
+module.exports = {
+    personRouter
+}
