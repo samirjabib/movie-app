@@ -5,16 +5,21 @@ const { StatusCodes } = require("http-status-codes")
 const createReview = (req, res, next) => {
     try {
         const { movieId } = req.params
-        const { user } = req
+        const { user, body } = req
 
 
-        const data = reviewsServices.createReview(movieId, user)
+        const response = reviewsServices.createReview({movieId, user, body})
+        
+        const error = response.stack
+        if(error){
+            return next(response)
+        }
 
         res.status(StatusCodes.CREATED).json({
-            data
+            response
         })
     } catch (error) {
-        
+        next(error)
     }
 }
 

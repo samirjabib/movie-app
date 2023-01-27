@@ -1,4 +1,4 @@
-const createReview = async(body) => {
+const createReview = async({movieId, user, body}) => {
     const data =  ""
 
     return data
