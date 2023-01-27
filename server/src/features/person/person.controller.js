@@ -26,10 +26,13 @@ const personDetail = async(req, res, next) => {
 const personMedias = async(req, res) => {
     try {
         const { personId } = req.params
-        const medias = await personServices.personMedias(personId)
+        const response = await personServices.personMedias(personId)
 
+        res.status(StatusCodes.OK).json({
+            response
+        })
     } catch (error) {
-        
+        next(error)
     }
 }
 
