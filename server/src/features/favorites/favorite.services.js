@@ -32,6 +32,8 @@ const addFavorite = async({user, body}) => {
 }
 
 const removeFavorite = async({favoriteId, user}) => {
+
+
     const data = await Favorites.findOne({
         where:{
             user:user.id,
@@ -39,12 +41,23 @@ const removeFavorite = async({favoriteId, user}) => {
         }
     })
 
+    if(!data){
+        return AppError('DONT_EXISTS_FAVORITE', StatusCodes.BAD_REQUEST, false)
+    } else {
+        await data.destroy()
+        console.log('destroy favorite')
+    }
     return data
 }
 
 
-const getFavoritesOfUser = async() => {
-
+const getFavoritesOfUser = async(user) => {
+    const data = await Favorites.findAll({
+        where:{
+            user:user.id
+        }
+    })
+    return data
 }
 
 module.exports = {

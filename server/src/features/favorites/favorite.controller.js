@@ -41,9 +41,7 @@ const removeFavorite = async(req, res, next) => {
             return next(response)
         }
 
-        res.status(StatusCodes.NO_CONTENT).json({
-            response
-        })
+        res.status(StatusCodes.NO_CONTENT)
         
     } catch (error) {
         next(error)
@@ -53,6 +51,17 @@ const removeFavorite = async(req, res, next) => {
 
 const getFavoritesOfUser = async(req, res, next) => {
     try {
+        const { user } = req.params
+        const response = favoriteServices.getFavoritesOfUser(user)
+
+        const error = response.error
+        if(error){
+            return next(response)
+        }
+
+        res.status(StatusCodes.OK).json({
+            response
+        });
         
     } catch (error) {
         next(error)
