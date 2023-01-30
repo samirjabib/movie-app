@@ -1,14 +1,18 @@
 const { StatusCodes } = require('http-status-codes')
-const { Favorites } = require('../../models/sql/favorite.model')
 
 const favoriteServices = require('./favorite.services')
 
 
 
-
 const addFavorite = async(req, res, next) => {
     try {
-        const response = await favoriteServices.addFavorite()
+        const { user  } = req.user
+        const { body } = req
+
+        const response = await favoriteServices.addFavorite({
+            user,
+            body
+        })
 
         const error = response.stack
         if(error){
@@ -27,6 +31,19 @@ const addFavorite = async(req, res, next) => {
 
 const removeFavorite = async(req, res, next) => {
     try {
+        const { favoriteId } = req.params
+        const { user } = req
+
+        const response = await favoriteServices.removeFavorite({favoriteId, user})
+
+        const error = response.stack
+        if(error){
+            return next(response)
+        }
+
+        res.status(StatusCodes.NO_CONTENT).json({
+            response
+        })
         
     } catch (error) {
         next(error)
