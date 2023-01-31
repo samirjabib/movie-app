@@ -5,7 +5,7 @@ import { appStateSlice } from './features'
 
 export const store = configureStore({
     reducer:{
-        appState: appStateSlice
+        appState: appStateSlice.reducer
     }
 });
 

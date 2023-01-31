@@ -8,7 +8,7 @@ export const PageWrapper = ({ state, children}) => {
 
     useEffect( () => {
         window.scrollTo(0, 0)
-        setAppState(state)
+        // setAppState(state)
     }, [state])
 
     return(
