@@ -8,8 +8,8 @@ export const  favoriteEndpoints = {
   
 
 
-  export const favoriteApi = {
-    
+export const favoriteApi = {
+
     getList: async () => {
         try {
             const response = await privateClient.get(favoriteEndpoints.list);
@@ -21,36 +21,36 @@ export const  favoriteEndpoints = {
     },
 
     add: async ({
-      mediaId,
-      mediaType,
-      mediaTitle,
-      mediaPoster,
-      mediaRate
+        mediaId,
+        mediaType,
+        mediaTitle,
+        mediaPoster,
+        mediaRate
     }) => {
-      try {
+        try {
         const response = await privateClient.post(
-          favoriteEndpoints.add,
-          {
+            favoriteEndpoints.add,
+            {
             mediaId,
             mediaType,
             mediaTitle,
             mediaPoster,
             mediaRate
-          }
+            }
         );
-  
+
         return { response };
-      } catch (err) { return { err }; }
+        } catch (err) { return { err }; }
     },
-    
+
     remove: async ({ favoriteId }) => {
         try {
             const response = await privateClient.delete(favoriteEndpoints.remove({ favoriteId }));
-    
+
             return { response };
         } catch (err) { 
             return { err }; 
         }
     }
-  };
-  
+};
+
