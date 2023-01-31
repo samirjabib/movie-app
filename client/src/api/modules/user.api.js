@@ -21,6 +21,7 @@ export const userApi = {
       return { response };
     } catch (err) { console.log("err"); return { err }; }
   },
+
   register: async ({ username, password, confirmPassword, displayName }) => {
     try {
       const response = await publicClient.post(
@@ -31,6 +32,7 @@ export const userApi = {
       return { response };
     } catch (err) { return { err }; }
   },
+
   getInfo: async () => {
     try {
       const response = await privateClient.get(userEndpoints.getInfo);
@@ -38,6 +40,7 @@ export const userApi = {
       return { response };
     } catch (err) { return { err }; }
   },
+  
   passwordUpdate: async ({ password, newPassword, confirmNewPassword }) => {
     try {
       const response = await privateClient.put(

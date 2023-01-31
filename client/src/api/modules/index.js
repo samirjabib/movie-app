@@ -1,0 +1,6 @@
+export * from './user.api'
+export * from './review.api'
+export * from './person.api'
+export * from './media.api'
+export * from './genre.api'
+export * from './favorite.api'
