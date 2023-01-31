@@ -2,14 +2,15 @@ import privateClient from "../client/private.client";
 import publicClient from "../client/public.client";
 
 const userEndpoints = {
-  signin: "user/signin",
-  signup: "user/signup",
+  login: "user/login",
+  register: "user/register",
   getInfo: "user/info",
   passwordUpdate: "user/update-password"
 };
 
 export const userApi = {
-  signin: async ({ username, password }) => {
+
+  login: async ({ username, password }) => {
     try {
       console.log("send request");
       const response = await publicClient.post(
@@ -20,7 +21,7 @@ export const userApi = {
       return { response };
     } catch (err) { console.log("err"); return { err }; }
   },
-  signup: async ({ username, password, confirmPassword, displayName }) => {
+  register: async ({ username, password, confirmPassword, displayName }) => {
     try {
       const response = await publicClient.post(
         userEndpoints.signup,

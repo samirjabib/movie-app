@@ -52,7 +52,7 @@ const removeFavorite = async(req, res, next) => {
 const getFavoritesOfUser = async(req, res, next) => {
     try {
         const { user } = req.params
-        const response = favoriteServices.getFavoritesOfUser(user)
+        const response = await favoriteServices.getFavoritesOfUser(user)
 
         const error = response.error
         if(error){
