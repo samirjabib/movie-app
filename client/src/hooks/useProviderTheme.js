@@ -28,7 +28,9 @@ export const useProviderTheme = () => {
     
     
     return{
-        handleThemeSwitch
+        handleThemeSwitch,
+        
+        theme
     }
 }
 
