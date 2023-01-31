@@ -1,9 +1,9 @@
 
 export const Header = () => {
     return (
-        <div>
-            
-        </div>
+        <nav>
+            className={`bg-gray-200`}
+        </nav>
     );
 };
 
