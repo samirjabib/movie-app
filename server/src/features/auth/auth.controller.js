@@ -4,6 +4,7 @@ const authServices = require('./auth.services')
 const register = async (req, res, next) => {
     try {
         const { body } = req
+        console.log(body)
         const response = await authServices.register(body)
 
         const error = response.stack
@@ -16,6 +17,7 @@ const register = async (req, res, next) => {
         })
     } catch (error) {
         next(error)
+        console.log(error)
     }
 }
 
@@ -25,14 +27,16 @@ const login = async(req, res, next) => {
         const response = await authServices.login(body)
 
         const error = response.stack
+        console.log(error)
         if(error){
             return next(response)
         }
 
-        res.status(StatusCodes.CREATED).json({
-            ...response
+        res.status(StatusCodes.OK).json({
+            response
         })
     } catch (error) {
+        console.log(error)
         next(error)
     }
 }

@@ -19,7 +19,9 @@ const register = async(body) => {
         }
     })
 
+
     if(userExists){
+
         return new AppError(
         'USER_ALREADY_EXIST',
         StatusCodes.BAD_REQUEST,
@@ -56,6 +58,8 @@ const login = async(body) => {
         }
     })
 
+    console.log(data)
+
     if(!data){
         return new AppError(
             'USER_OR_PASSWORD_FAIL',
@@ -64,7 +68,10 @@ const login = async(body) => {
         )
     }
 
-    const samePasswords = await compare(password, data.password)
+    const { password: hashPassword } = data
+
+    const samePasswords = await compare( body.password, hashPassword)
+    console.log(samePasswords)
 
     if(!samePasswords){
         return new AppError(

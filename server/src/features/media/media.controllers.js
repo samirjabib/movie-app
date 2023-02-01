@@ -53,7 +53,10 @@ const getGneres = async( req, res , next) => {
     try {
         const { mediaType } = req.params
 
-        const response = await mediaServices.getGneres(mediaType)
+        console.log(mediaType)
+
+        const response = await mediaServices.getGneres({mediaType})
+        console.log(mediaType)
 
         const error = response.stack
         if(error){
@@ -66,6 +69,7 @@ const getGneres = async( req, res , next) => {
 
     } catch (error) {
         next(error)
+        console.log(error)
     }
 }
 

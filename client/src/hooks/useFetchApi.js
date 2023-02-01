@@ -7,7 +7,9 @@ import {
 } from '../api'
 
 
-export const useFetchApi = () => {
+export const useFetchApi = ({  mediaType, mediaCategory}) => {
+
+    const dispatch = useDispatch()
     
     const [ movies, setMovies ] = useState()
     const [ gnres, setGenres ] = useState()
@@ -23,12 +25,12 @@ export const useFetchApi = () => {
         });
   
         if (response) setMovies(response.results);
-        if (err) toast.error(err.message);
-        dispatch(setGlobalLoading(false));
+        // if (err) toast.error(err.message);
+        // dispatch(setGlobalLoading(false));
       };
 
       const getGenres = async () => {
-        dispatch(setGlobalLoading(true));
+        // dispatch(setGlobalLoading(true));
         const { response, err } = await genreApi.getList({ mediaType });
   
         if (response) {
@@ -36,8 +38,8 @@ export const useFetchApi = () => {
           getMedias();
         }
         if (err) {
-          toast.error(err.message);
-          setGlobalLoading(false);
+          // toast.error(err.message);
+          // setGlobalLoading(false);
         }
       };
       

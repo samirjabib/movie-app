@@ -7,7 +7,7 @@ const { personRouter } = require("../features/person/person.routes")
 const mainRouter = require("express").Router()
 
 mainRouter.use('/auth', authRouter)
-mainRouter.use('/media', mediaRouter)
+mainRouter.use('/:mediaType', mediaRouter)
 mainRouter.use('/person', personRouter)
 
 module.exports = { mainRouter }

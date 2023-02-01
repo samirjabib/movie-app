@@ -1,5 +1,6 @@
 class AppError extends Error {
     constructor (message, statusCode, isOperational) {
+        console.log(message)
         super(message)
         this.message = message,
         this.statusCode = statusCode,

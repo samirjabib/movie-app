@@ -8,6 +8,8 @@ const mediaEndPoints = {
     search: ({ mediaType, query, page }) => `${mediaType}/search?query=${query}&page=${page}`
 }
 
+console.log(mediaEndPoints.list)
+
 export const mediaApi = {
 
     getList: async ({ mediaType, mediaCategory, page }) => {

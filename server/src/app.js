@@ -67,6 +67,7 @@ app.all('*', (req, res, next) => {
 app.use('*', globalErrorHandler)
 
 
+
 app.listen( config.port ,() => {
     console.log(`server run on port ${config.port}`)
 })
