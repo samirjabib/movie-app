@@ -24,7 +24,7 @@ const getList = async({page, mediaType, mediaCategory}) => {
     return response
 }
 
-const getGneres = async(mediaType) => {
+const getGenres = async(mediaType) => {
 
     const data = await tmdbApi.mediaGenres({mediaType})
 
@@ -75,6 +75,6 @@ const getDetails = async(mediaType, mediaId, user) => {
 module.exports = { 
     searchMovies, 
     getList,
-    getGneres,
+    getGenres,
     getDetails
 }

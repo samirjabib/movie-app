@@ -1,4 +1,6 @@
 require('dotenv').config()
+
+
 const config = {
     port:process.env.PORT || 9000,
     nodeEnv:process.env.NODE_ENV || 'development', //Desarrollo , Testing , Produccion
@@ -9,10 +11,11 @@ const config = {
         dbName:process.env.DB_NAME,
     },
     JWT_SECRET:process.env.JWT_SECRET,
-    TMBD_URL:process.env.TMBD_URL,
+    TMBD_URL:process.env.TMDB_URL,
     TMDB_TOKEN:process.env.TMDB_TOKEN,
     TMDB_KEY:process.env.TMDB_KEY
 }
+
 
 module.exports = { config }
 

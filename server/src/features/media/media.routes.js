@@ -3,7 +3,7 @@ const mediaRouter = require('express').Router({ mergeParams : true}) // mergePar
 const { 
     searchMovies, 
     getList,
-    getGneres,
+    getGenres,
     getDetail,
 
 } = require('./media.controllers')
@@ -12,7 +12,7 @@ const {
 
 mediaRouter.get("/search", searchMovies )
 
-mediaRouter.get("/genres", getGneres)
+mediaRouter.get("/genres", getGenres)
 
 mediaRouter.get("/detail/:mediaId", getList)
 

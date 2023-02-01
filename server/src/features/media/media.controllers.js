@@ -22,7 +22,6 @@ const searchMovies = async(req, res, next) => {
 
     } catch (error) {
         next(error)
-        console.log(error)
     }
    
 
@@ -45,17 +44,18 @@ const getList = async( req, res, next) => {
             response
         })
     } catch (error) {
-        next()
+        console.log(error)
+        next(error)
     }
 }
 
-const getGneres = async( req, res , next) => {
+const getGenres = async( req, res , next) => {
     try {
         const { mediaType } = req.params
 
         console.log(mediaType)
 
-        const response = await mediaServices.getGneres({mediaType})
+        const response = await mediaServices.getGenres({mediaType})
         console.log(mediaType)
 
         const error = response.stack
@@ -102,7 +102,7 @@ const getDetail = async(req, res, next) => {
 module.exports = { 
     searchMovies,
     getList,
-    getGneres,
+    getGenres,
     getDetail
 
 

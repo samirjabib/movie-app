@@ -71,7 +71,6 @@ const login = async(body) => {
     const { password: hashPassword } = data
 
     const samePasswords = await compare( body.password, hashPassword)
-    console.log(samePasswords)
 
     if(!samePasswords){
         return new AppError(

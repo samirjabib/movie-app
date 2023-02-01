@@ -1,7 +1,7 @@
 const tmdbConfig = require('./tmdb.config')
 
 const tmdbEndpoints = {
-    mediaList : ({ mediaType, mediaCategory, page}) => tmbdbConfig.getUrl(
+    mediaList : ({ mediaType, mediaCategory, page}) => tmdbConfig.getUrl(
         `${mediaType}/${mediaCategory}`, {page}
     ),
     mediaDetail:({mediaType, mediaId}) => tmdbConfig.getUrl(
