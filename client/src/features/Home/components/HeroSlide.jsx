@@ -9,7 +9,6 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
     return(
         <div>
 
-            Im the hero slider
         </div>
     )
 }
