@@ -53,23 +53,21 @@ const getGenres = async( req, res , next) => {
     try {
         const { mediaType } = req.params
 
-        console.log(mediaType)
-
-        const response = await mediaServices.getGenres({mediaType})
-        console.log(mediaType)
+        const response = await mediaServices.getGenres( { mediaType } )
 
         const error = response.stack
         if(error){
             return next(response)
         }
+        console.log(error)
 
         res.status(StatusCodes.OK).json({
             response
         })
 
     } catch (error) {
-        next(error)
         console.log(error)
+        next(error)
     }
 }
 

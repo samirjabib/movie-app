@@ -24,11 +24,14 @@ const getList = async({page, mediaType, mediaCategory}) => {
     return response
 }
 
-const getGenres = async(mediaType) => {
+const getGenres = async( {mediaType }) => {
 
-    const data = await tmdbApi.mediaGenres({mediaType})
 
-    return data
+    const data = await tmdbApi.mediaGenres( { mediaType })
+    // return data
+    return{
+        ok:'success'
+    }
 }
 
 const getDetails = async(mediaType, mediaId, user) => {

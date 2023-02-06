@@ -48,7 +48,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:false})) //Analiza las request con cargas utiles
 app.use(cookieParser()) //Manejo de cookies
 
-// const server = http.createServer(app) //Crear server web node
+const server = http.createServer(app) //Crear server web node
 
 
 app.use('/api/v1', mainRouter)
@@ -68,6 +68,6 @@ app.use('*', globalErrorHandler)
 
 
 
-app.listen( config.port ,() => {
+server.listen( config.port ,() => {
     console.log(`server run on port ${config.port}`)
 })
