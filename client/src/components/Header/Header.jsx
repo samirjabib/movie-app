@@ -1,22 +1,22 @@
 import { NavLink } from "react-router-dom";
-import { CgDarkMode } from "react-icons/cg"
+import { MdOutlineDarkMode} from "react-icons/md"
+import { useNavLinks } from "../../hooks/";
+import { NavLinks } from "./NavLinks";
 
-export const Header = () => {
+
+export const Header = ({auth}) => {
+
+    const navLinks = useNavLinks(auth)
+
     return (
         <nav className="bg-gray-200 flex justify-between p-4">
-            <div className="flex gap-6">
+            <div className="flex gap-8">
                 <h1>Oni<span>Giri</span></h1>
-                    <ul >
-                        <li className="flex gap-4">
-                            <NavLink to='/'>Home</NavLink>
-                            <NavLink to='/'>Movies</NavLink>
-                            <NavLink to='/'>Tv Series</NavLink>
-                            <NavLink to='/'>Search</NavLink>
-
-                        </li>
+                    <ul className="flex gap-4">
+                        <NavLinks navLinks={navLinks}/>
                     </ul>
                     <button>
-                        <CgDarkMode/>
+                        <MdOutlineDarkMode/>
                     </button>
             </div>
             <button>Sign In</button>
