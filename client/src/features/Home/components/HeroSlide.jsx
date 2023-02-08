@@ -34,7 +34,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                     <img
                                         src={tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)}
                                         alt={movie.title}
-                                        className="text-black  dark:text-white border-2 border-black h-screen w-full flex items-center justify-center object-cover object-top"
+                                        className="text-black  dark:text-white  h-screen w-full flex items-center justify-center object-cover object-top"
 
                                     />
                                     <div className="absolute z-50 top-[30%]  left-[7.5%]">
@@ -46,11 +46,13 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
                                             </div>
                                             <div>
-
+                                                {
+                                                    
+                                                }
                                             </div>
                                         </div>
                                         <p>
-
+                                            {movie.overview}
                                         </p>
                                         <button>
 
