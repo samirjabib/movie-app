@@ -54,8 +54,8 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                         <p>
                                             {movie.overview}
                                         </p>
-                                        <button>
-
+                                        <button className="uppercase text-black dark:text-white bg-green-500 py-2 px-4 rounded-md">
+                                            Watch Now
                                         </button>
                                     </div>
                                 </div>
