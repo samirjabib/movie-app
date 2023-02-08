@@ -22,7 +22,7 @@ export const Header = ({auth}) => {
                         <NavLinks navLinks={navLinks}/>
                     </ul>
                     <button 
-                        className="self-center duration-100 transition-all rounded-full p-2 delay-100 hover:bg-gray-200 "
+                        className="self-center duration-100 transition-all rounded-full p-2 delay-100 hover:bg-green-500 "
                         onClick={handleThemeSwitch}
                         
                     >
