@@ -3,7 +3,7 @@ import 'swiper/css';
 
 
 
-import { useGetPopularMoviesQuery } from "../../../redux"
+import { useGetPopularMoviesQuery, useGetCategoriesMoviesQuery } from "../../../redux"
 
 import { tmdbConfigs } from "../../../api";
 
@@ -11,11 +11,16 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
     console.log(mediaType, mediaCategory)
 
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType, mediaCategory, page:1 })
+
+    const { data:categories, isLoading:isLoadingCategories, isError:isErrorCategories } = useGetCategoriesMoviesQuery({mediaType})
+    console.log(categories)
+
     const popularMovies = data?.response.results
-    console.log(popularMovies)
 
     
-    
+    if(isLoading){
+        return <div className="text-black justify-center items-center h-screen text-4xl">Loading</div>
+    }
  
     return(
         <div className="bg-white dark:bg-black h-screen">
@@ -26,7 +31,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
             >
                 {
                     popularMovies?.map( (movie, index) => {
-                        console.log(movie)
+                        // console.log(movie)
                         return(
                             <SwiperSlide key={index}>
                                 <div className="w-full h-screen bg-gradient-to-r absolute from-green-100 dark:from-black z-50"></div>

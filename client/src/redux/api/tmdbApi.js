@@ -15,10 +15,14 @@ export const tmdbApi = createApi({
 
         getPopularMovies: builder.query({
             query: ({ mediaCategory, mediaType, page }) => `/${mediaType}/${mediaCategory}?page=${page}`
-        })
+        }),
+
+        getCategoriesMovies : builder.query({
+            query: ({ mediaType }) => `/${mediaType}`
+        }),
 
     })
 
 })
 
-export const { useGetPopularMoviesQuery } = tmdbApi
+export const { useGetPopularMoviesQuery, useGetCategoriesMoviesQuery } = tmdbApi
