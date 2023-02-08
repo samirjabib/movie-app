@@ -9,11 +9,11 @@ import {
 
 
 export const useFetchApi = ({  mediaType, mediaCategory}) => {
-  console.log(mediaType, mediaCategory)
 
     const dispatch = useDispatch()
     
     const [ movies, setMovies ] = useState()
+    console.log(movies)
     const [ gnres, setGenres ] = useState()
 
     const getMedias = async () => {
@@ -23,10 +23,9 @@ export const useFetchApi = ({  mediaType, mediaCategory}) => {
             mediaCategory,
             page:1
           });
-          console.log(response, 'resposne')
-        
-          console.log(error)
-    
+
+          setMovies(response.response)
+          
     };
 
     useEffect( () => {

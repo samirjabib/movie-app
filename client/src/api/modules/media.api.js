@@ -14,7 +14,6 @@ const mediaEndpoints = {
         const response = await publicClient.get(
           `${mediaType}/${mediaCategory}?page=${page}`
         ); 
-        console.log(response)
         return { response };
       } catch (err) { return { err }; }
     },
