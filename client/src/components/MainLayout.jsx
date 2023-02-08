@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 
 
 export const MainLayout = () => {
-
     const auth = {
         status:'authenticated',
         role:'client'

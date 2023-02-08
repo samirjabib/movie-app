@@ -18,7 +18,6 @@ const searchMovies = async({ mediaType, query, page }) => {
 
 
 const getList = async({page, mediaType, mediaCategory}) => {
-
     const response = await tmdbApi.mediaList({page, mediaType, mediaCategory})
 
     return response
@@ -29,9 +28,8 @@ const getGenres = async( {mediaType }) => {
 
     const data = await tmdbApi.mediaGenres( { mediaType })
     // return data
-    return{
-        ok:'success'
-    }
+    
+    return data
 }
 
 const getDetails = async(mediaType, mediaId, user) => {

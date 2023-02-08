@@ -1,10 +1,10 @@
-const axios = require('axios')
+const axios = require("axios")
 
 
 const get = async(url) => {
     const response = await axios.get(url,{
         headers:{
-            Accept:"application/json",
+            Accept: "application/json",
             "Accept-Encoding": "identity"
         }
     })

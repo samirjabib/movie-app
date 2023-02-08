@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useProviderTheme = () => {
 
-    const [ theme, setTheme ] = useState(null)
+    const [ theme, setTheme ] = useState('dark')
 
 
     useEffect( () => {

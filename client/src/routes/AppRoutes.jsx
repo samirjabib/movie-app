@@ -7,8 +7,6 @@ import { routes } from "./routes"
 
 export const AppRouter = () => {
 
-
-
     return(
         <>
             <Routes>

@@ -3,6 +3,7 @@ import queryString from "query-string";
 
 const baseURL = "http://localhost:9000/api/v1"
 
+
 const publicClient = axios.create({
   baseURL,
   paramsSerializer: {

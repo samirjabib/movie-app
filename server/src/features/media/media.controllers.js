@@ -32,7 +32,6 @@ const getList = async( req, res, next) => {
     try {
         const { page } = req.query
         const { mediaType, mediaCategory } = req.params
-
         const response = await mediaServices.getList({page, mediaType, mediaCategory})
 
         const error = response.stack
@@ -44,7 +43,6 @@ const getList = async( req, res, next) => {
             response
         })
     } catch (error) {
-        console.log(error)
         next(error)
     }
 }

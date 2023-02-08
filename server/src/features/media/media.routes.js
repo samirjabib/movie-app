@@ -14,9 +14,9 @@ mediaRouter.get("/search", searchMovies )
 
 mediaRouter.get("/genres", getGenres)
 
-mediaRouter.get("/detail/:mediaId", getList)
+mediaRouter.get("/detail/:mediaId", getDetail)
 
-mediaRouter.get("/:mediaCategory", getDetail)
+mediaRouter.get("/:mediaCategory", getList)
 
 
 
