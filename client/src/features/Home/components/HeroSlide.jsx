@@ -37,24 +37,22 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                         className="text-black  dark:text-white  h-screen w-full flex items-center justify-center object-cover object-top"
 
                                     />
-                                    <div className="absolute z-50 top-[30%]  left-[7.5%]">
+                                    <div className="absolute z-50 top-[30%]  left-[7.5%] ">
                                         <h2 className="text-5xl text-black dark:text-white font-bold">
                                             {movie.title}
                                         </h2>
-                                        <div>
+                                        <div className="w-96  flex flex-row-reverse mt-2">
                                             <div>
 
                                             </div>
-                                            <div>
-                                                {
-                                                    
-                                                }
+                                            <div className="text-gray-700 dark:text-green-200 full w-24">
+                                                Category
                                             </div>
                                         </div>
-                                        <p>
+                                        <p className="text-black dark:text-white mt-6 w-96">
                                             {movie.overview}
                                         </p>
-                                        <button className="uppercase text-black dark:text-white bg-green-500 py-2 px-4 rounded-md">
+                                        <button className="uppercase text-black dark:text-white bg-green-500 py-2 px-4 rounded-md mt-6">
                                             Watch Now
                                         </button>
                                     </div>
