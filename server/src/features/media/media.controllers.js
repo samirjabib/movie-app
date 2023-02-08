@@ -31,6 +31,7 @@ const searchMovies = async(req, res, next) => {
 const getList = async( req, res, next) => {
     try {
         const { page } = req.query
+        console.log(page)
         const { mediaType, mediaCategory } = req.params
         const response = await mediaServices.getList({page, mediaType, mediaCategory})
 

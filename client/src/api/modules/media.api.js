@@ -1,3 +1,5 @@
+import publicClient from "../client/public.client";
+
 const mediaEndpoints = {
     list: ({ mediaType, mediaCategory, page }) => `${mediaType}/${mediaCategory}?page=${page}`,
     detail: ({ mediaType, mediaId }) => `${mediaType}/detail/${mediaId}`,
@@ -8,12 +10,11 @@ const mediaEndpoints = {
   export const mediaApi = {
     getList: async ({ mediaType, mediaCategory, page }) => {
       try {
+        console.log(mediaType, mediaCategory, page)
         const response = await publicClient.get(
           `${mediaType}/${mediaCategory}?page=${page}`
-        );
-
-        console.log(response, ' response console log')
-  
+        ); 
+        console.log(response)
         return { response };
       } catch (err) { return { err }; }
     },
