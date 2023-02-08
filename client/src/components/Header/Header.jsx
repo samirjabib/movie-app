@@ -12,9 +12,10 @@ export const Header = ({auth}) => {
 
     return (
         <nav 
-            className={`flex justify-between p-4 fixed top-0 w-full ${backgroundScroll ? 'bg-transparent' : 'bg-white dark:bg-black'}`}
+            className={`flex z-50 justify-between p-4 fixed top-0 w-full ${backgroundScroll ? 'bg-transparent' : 'bg-white dark:bg-black'}`}
             onChange={backgroundHandle}
         >
+        
             <div className="flex gap-8">
                 <h1 className="font-bold text-2xl self-center  dark:text-white">Oni<span className="text-green-500">Giri</span></h1>
                     <ul className="flex gap-4 self-center">
@@ -36,6 +37,7 @@ export const Header = ({auth}) => {
             >
                 Sign In
             </button>
+           
         </nav>
     );
 };

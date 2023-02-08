@@ -13,12 +13,12 @@ export const tmdbApi = createApi({
 
     endpoints:(builder) => ({
 
-        getMovies: builder.query({
-            query: (mediaCategory, mediaType, page) => `${mediaType}/${mediaCategory}?page=${page}`
+        getPopularMovies: builder.query({
+            query: ({ mediaCategory, mediaType, page }) => `/${mediaType}/${mediaCategory}?page=${page}`
         })
 
     })
 
 })
 
-export const { useGetMoviesQuery } = tmdbApi
+export const { useGetPopularMoviesQuery } = tmdbApi
