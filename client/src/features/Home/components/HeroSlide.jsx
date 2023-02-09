@@ -53,11 +53,11 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                             <div>
 
                                             </div>
-                                                {[...movie.genre_ids].splice(0,2).map(
+                                                {[...movie.genre_ids].splice(0,3).map(
                                                     (genreId, index )=> {
                                                         return(
                                                             <div 
-                                                            className="text-gray-700 dark:text-green-200 full w-24"
+                                                            className="text-gray-700 dark:text-green-200 full ml-2"
                                                             key={index}
                                                         >
                                                             {arrayCategories.find( categorie => categorie.id === genreId ) && arrayCategories.find( categorie => categorie.id === genreId).name}
