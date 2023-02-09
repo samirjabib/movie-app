@@ -18,7 +18,7 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
                      slidesPerView="auto"
                      grabCursor={true}
                      style={{ width: "100%", height: "max-content" }}
-                     className='grid grid-cols-4 '
+                     className='grid grid-cols-4'
                 >
                     {
                     popularMovies?.map( movie => {
@@ -28,6 +28,7 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
                                     <CardItem
                                         movie={movie}
                                         key={movie.id}
+                                        
                                     />
                                 </SwiperSlide>
                             )

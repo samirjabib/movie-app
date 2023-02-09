@@ -1,14 +1,15 @@
 import { tmdbConfigs } from "../../api"
+tmdbConfigs.posterPath
 
 export const CardItem = ({movie}) => {
     console.log(movie)
     return(
-            <div className="mt-8 ml-3 ">
+            <div className="mt-6  h-full" >
                  <img
-                    src={tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)}
+                    src={tmdbConfigs.backdropPath(movie.poster_path || movie.backdrop_path )}
                     alt={movie.title}
-                    className="text-black  dark:text-white w-full  flex items-center justify-center object-cover object-top rounded-lg"
-                    />
+                    className ='object-cover h-full w-full rounded-lg border-4 border-transparent'                    
+                />
             </div>
     )
 }
