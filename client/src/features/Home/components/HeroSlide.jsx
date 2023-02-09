@@ -45,13 +45,13 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                         return(
                             <SwiperSlide key={index}>
                                 
-                                <div className="w-full bg-white dark:bg-black  ">
-                                    <div className="w-full h-screen bg-gradient-to-b absolute from-white dark:from-black"></div>
+                                <div className="w-full bg-white dark:bg-black h-[85vh] ">
+                                    <div className="w-full h-full bg-gradient-to-t absolute from-white dark:from-black"></div>
 
                                     <img
                                         src={tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)}
                                         alt={movie.title}
-                                        className="text-black  dark:text-white w-full  h-screen flex items-center justify-center object-cover object-top"
+                                        className="text-black  dark:text-white w-full  h-full flex items-center justify-center object-cover object-top"
 
                                     />
                                     <div className="absolute z-50 top-[30%]  left-[7.5%] ">

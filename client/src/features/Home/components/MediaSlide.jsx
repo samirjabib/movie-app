@@ -12,13 +12,13 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
     console.log(popularMovies)
 
     return(
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-14">
             <p className="text-black text-2xl uppercase font-semibold dark:text-white">{title}</p>
                 <Swiper
                      slidesPerView="auto"
                      grabCursor={true}
                      style={{ width: "100%", height: "max-content" }}
-                     className='grid grid-cols-4'
+                     className='grid grid-cols-4 '
                 >
                     {
                     popularMovies?.map( movie => {
