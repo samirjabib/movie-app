@@ -19,41 +19,47 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
     const popularMovies = data?.response.results
 
-        if(isLoading){
-            return <Loading/>
+    if(isLoading){
+        return <Loading/>
+    }
+    
+
+    const reducedString = (str, num) => {
+        if( str?.length > num) {
+           return str.slice(0,100) + '...'
+        } else {
+            return str
         }
+    }
 
  
     return(
-        <div className="bg-white dark:bg-black h-screen">
+        <div className="relative">
             <Swiper
                 grabCursor={true}
                 loop={true}
-                style={{width:"100%", height:"max-content"}}
             >
                 {
                     popularMovies?.map( (movie, index) => {
-                 
-
                         return(
                             <SwiperSlide key={index}>
                                 
-                                <div className="w-full h-screen bg-white dark:bg-black relative border-5 border-yellow-500 ">
+                                <div className="w-full bg-white dark:bg-black border-5 border-yellow-500 ">
                                     <div className="w-full h-screen bg-gradient-to-r absolute from-green-100 dark:from-black"></div>
                                     <img
                                         src={tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)}
                                         alt={movie.title}
-                                        className="text-black  dark:text-white h-screen w-full flex items-center justify-center object-cover object-top"
+                                        className="text-black  dark:text-white w-full  h-screen flex items-center justify-center object-cover object-top"
 
                                     />
                                     <div className="absolute z-50 top-[30%]  left-[7.5%] ">
                                         <h2 className="text-5xl text-black dark:text-white font-bold">
                                             {movie.title}
                                         </h2>
-                                        <div className="w-96  flex flex-row-reverse mt-2">
-                                            <div>
-
-                                            </div>
+                                        <div 
+                                            className="w-96  flex flex-row-reverse mt-2"
+                                        >
+                                    
                                                 {[...movie.genre_ids].splice(0,3).map(
                                                     (genreId, index )=> {
                                                         return(
@@ -70,7 +76,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                                 )}
                                         </div>
                                         <p className="text-black dark:text-white mt-6 w-96">
-                                            {movie.overview}
+                                            {reducedString(movie.overview, 250)}
                                         </p>
                                         <button className="uppercase text-black dark:text-white bg-green-500 py-2 px-4 rounded-md mt-6">
                                             Watch Now
@@ -81,10 +87,8 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                         )
                     })
                 }
-
-
-
             </Swiper>
+        
         </div>
     )
 }

@@ -15,7 +15,7 @@ export const MainLayout = () => {
             <div>
                 <Header auth={auth}/>
                 <div
-                    className="h-screen overflow-hidden"
+                    className="h-screen"
                 >
                     <Outlet/>
                 </div>

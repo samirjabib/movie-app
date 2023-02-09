@@ -6,7 +6,7 @@ import { tmdbConfigs } from "../../../api";
 
 export const HomePage = () => {
     return (
-        <div>
+        <div className=" h-auto bg-white dark:bg-black ">
             <HeroSlide 
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
