@@ -11,7 +11,11 @@ export const HomePage = () => {
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
             />
-            <MediaSlide/>
+            <MediaSlide
+                title="Popular Movies"
+                mediaType={tmdbConfigs.mediaType.movie}
+                mediaCategory={tmdbConfigs.mediaCategory.popular}
+            />
         </div>
     );
 };

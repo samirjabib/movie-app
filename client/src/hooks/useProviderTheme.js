@@ -7,9 +7,9 @@ export const useProviderTheme = () => {
 
     useEffect( () => {
         if(window.matchMedia('prefers-colo-sheme: dark').matches){
-            setTheme('dark')
+            setTheme('light')
         }
-        setTheme('light')
+        setTheme('dark')
     }, [])
     
     useEffect(() => {
