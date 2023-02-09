@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { getCategories } from "../utils"; 
+import { Loading } from "../../../components/Loading/Loading";
+
 import 'swiper/css';
 
 
@@ -18,10 +19,11 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
     const popularMovies = data?.response.results
 
-    
-    if(isLoading){
-        return <div className="text-black justify-center items-center h-screen text-4xl">Loading</div>
-    }
+    return <Loading/>
+        if(isLoading){
+            
+        }
+
  
     return(
         <div className="bg-white dark:bg-black h-screen">
@@ -32,8 +34,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
             >
                 {
                     popularMovies?.map( (movie, index) => {
-                        console.log(arrayCategories)
-                        console.log(movie.genre_ids)
+                 
 
                         return(
                             <SwiperSlide key={index}>
@@ -60,7 +61,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                                             className="text-gray-700 dark:text-green-200 full ml-2"
                                                             key={index}
                                                         >
-                                                            {arrayCategories.find( categorie => categorie.id === genreId ) && arrayCategories.find( categorie => categorie.id === genreId).name}
+                                                            {arrayCategories?.find( categorie => categorie.id === genreId ) && arrayCategories?.find( categorie => categorie.id === genreId).name}
                                                             </div>
                                                         )
                                                        
@@ -80,6 +81,8 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                         )
                     })
                 }
+
+
 
             </Swiper>
         </div>

@@ -1,4 +1,4 @@
-import { HeroSlide } from "../components"
+import { HeroSlide, MediaSlide } from "../components"
 import { tmdbConfigs } from "../../../api";
 
 
@@ -11,6 +11,7 @@ export const HomePage = () => {
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
             />
+            <MediaSlide/>
         </div>
     );
 };
