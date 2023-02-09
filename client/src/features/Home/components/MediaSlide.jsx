@@ -12,7 +12,7 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
     console.log(popularMovies)
 
     return(
-        <div className="container mx-auto mt-14">
+        <div className="container mx-auto mt-14 ">
             <p className="text-black text-2xl uppercase font-semibold dark:text-white">{title}</p>
                 <Swiper
                      slidesPerView="auto"

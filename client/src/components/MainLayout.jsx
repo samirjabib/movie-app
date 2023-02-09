@@ -12,15 +12,14 @@ export const MainLayout = () => {
 
     return (
         <>  
-            <div>
-                <Header auth={auth}/>
                 <div
                     className="h-screen"
                 >
+                    <Header auth={auth}/>
                     <Outlet/>
+                    <Footer/>
+
                 </div>
-                <Footer/>
-            </div>
         </>
     );
 };
