@@ -12,7 +12,22 @@ export const HomePage = () => {
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
             />
             <MediaSlide
-                title="Popular Movies"
+                title="popular movies"
+                mediaType={tmdbConfigs.mediaType.movie}
+                mediaCategory={tmdbConfigs.mediaCategory.popular}
+            />
+            <MediaSlide
+                title="popular series"
+                mediaType={tmdbConfigs.mediaType.movie}
+                mediaCategory={tmdbConfigs.mediaCategory.popular}
+            />
+            <MediaSlide
+                title="top rates movies"
+                mediaType={tmdbConfigs.mediaType.movie}
+                mediaCategory={tmdbConfigs.mediaCategory.popular}
+            />
+            <MediaSlide
+                title="top rated series"
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
             />
