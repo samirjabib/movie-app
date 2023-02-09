@@ -4,7 +4,7 @@ tmdbConfigs.posterPath
 export const CardItem = ({movie}) => {
     console.log(movie)
     return(
-            <div className="mt-6  h-full" >
+            <div className="mt-6 h-full" >
                  <img
                     src={tmdbConfigs.backdropPath(movie.poster_path || movie.backdrop_path )}
                     alt={movie.title}

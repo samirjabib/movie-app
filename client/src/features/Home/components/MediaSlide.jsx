@@ -18,7 +18,7 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
                      slidesPerView="auto"
                      grabCursor={true}
                      style={{ width: "100%", height: "max-content" }}
-                     className='grid grid-cols-4'
+                     className='grid  grid-cols-3 sm:grid-cols-4 md:grid-cols-6'
                 >
                     {
                     popularMovies?.map( movie => {
