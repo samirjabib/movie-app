@@ -19,9 +19,8 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
     const popularMovies = data?.response.results
 
-    return <Loading/>
         if(isLoading){
-            
+            return <Loading/>
         }
 
  
@@ -38,12 +37,13 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
                         return(
                             <SwiperSlide key={index}>
-                                <div className="w-full h-screen bg-gradient-to-r absolute from-green-100 dark:from-black z-50"></div>
-                                <div className="w-full h-screen bg-white dark:bg-black relative ">
+                                
+                                <div className="w-full h-screen bg-white dark:bg-black relative border-5 border-yellow-500 ">
+                                    <div className="w-full h-screen bg-gradient-to-r absolute from-green-100 dark:from-black"></div>
                                     <img
                                         src={tmdbConfigs.backdropPath(movie.backdrop_path || movie.poster_path)}
                                         alt={movie.title}
-                                        className="text-black  dark:text-white  h-screen w-full flex items-center justify-center object-cover object-top"
+                                        className="text-black  dark:text-white h-screen w-full flex items-center justify-center object-cover object-top"
 
                                     />
                                     <div className="absolute z-50 top-[30%]  left-[7.5%] ">
