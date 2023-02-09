@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { getCategories } from "../utils"; 
 import 'swiper/css';
 
 
@@ -11,9 +12,9 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
     console.log(mediaType, mediaCategory)
 
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType, mediaCategory, page:1 })
-
     const { data:categories, isLoading:isLoadingCategories, isError:isErrorCategories } = useGetCategoriesMoviesQuery({mediaType})
-    console.log(categories)
+
+    const arrayCategories = categories?.response.genres
 
     const popularMovies = data?.response.results
 
@@ -31,7 +32,9 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
             >
                 {
                     popularMovies?.map( (movie, index) => {
-                        // console.log(movie)
+                        console.log(arrayCategories)
+                        console.log(movie.genre_ids)
+
                         return(
                             <SwiperSlide key={index}>
                                 <div className="w-full h-screen bg-gradient-to-r absolute from-green-100 dark:from-black z-50"></div>
@@ -50,9 +53,20 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                             <div>
 
                                             </div>
-                                            <div className="text-gray-700 dark:text-green-200 full w-24">
-                                                Category
-                                            </div>
+                                                {[...movie.genre_ids].splice(0,2).map(
+                                                    (genreId, index )=> {
+                                                        return(
+                                                            <div 
+                                                            className="text-gray-700 dark:text-green-200 full w-24"
+                                                            key={index}
+                                                        >
+                                                            {arrayCategories.find( categorie => categorie.id === genreId ) && arrayCategories.find( categorie => categorie.id === genreId).name}
+                                                            </div>
+                                                        )
+                                                       
+
+                                                    }
+                                                )}
                                         </div>
                                         <p className="text-black dark:text-white mt-6 w-96">
                                             {movie.overview}
