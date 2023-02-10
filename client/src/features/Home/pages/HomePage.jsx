@@ -18,7 +18,7 @@ export const HomePage = () => {
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.top_rated}
             />
-            {/* <MediaSlide
+            <MediaSlide
                 title="top rates movies"
                 mediaType={tmdbConfigs.mediaType.tv}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
@@ -27,7 +27,7 @@ export const HomePage = () => {
                 title="top rated series"
                 mediaType={tmdbConfigs.mediaType.tv}
                 mediaCategory={tmdbConfigs.mediaCategory.top_rated}
-            /> */}
+            />
         </div>
     );
 };

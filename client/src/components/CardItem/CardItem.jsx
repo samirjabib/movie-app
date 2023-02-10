@@ -22,7 +22,7 @@ export const CardItem = ({movie}) => {
                 >
               
                     <div className="mb-6 ml-2">
-                        <div className=" w-full flex mb-12 justify-center">
+                        <div className=" w-full flex mb-10 justify-center">
                             <ImPlay
                                 size={40}
                             
