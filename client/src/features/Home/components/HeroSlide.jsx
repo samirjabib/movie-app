@@ -54,7 +54,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
                                     />
                                     <div className="absolute z-50 top-[30%]  left-[7.5%] ">
-                                        <h2 className="text-5xl text-black dark:text-white font-bold">
+                                        <h2 className=" text-3xl md:text-5xl text-black dark:text-white font-bold">
                                             {movie.title}
                                         </h2>
                                         <div 
@@ -67,12 +67,12 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                                         </p>
                                 
                                                 </div>
-                                                <div className="flex flex-row">
+                                                <div className="flex flex-row ">
                                                     {[...movie.genre_ids].splice(0,2).map(
                                                         (genreId, index )=> {
                                                             return(
                                                                 <div 
-                                                                className="text-gray-700 dark:text-green-200 full ml-2"
+                                                                className="text-gray-700 dark:text-green-200  ml-2 relative md:right-6 right-12"
                                                                 key={index}
                                                             >
                                                                 {arrayCategories?.find( categorie => categorie.id === genreId ) && arrayCategories?.find( categorie => categorie.id === genreId).name}
@@ -85,7 +85,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                                 </div>
 
                                         </div>
-                                        <p className="text-black dark:text-white mt-6 w-96">
+                                        <p className="text-black dark:text-white mt-6  w-72 md:w-96">
                                             {reducedString(movie.overview, 250)}
                                         </p>
                                         <button className="uppercase text-black dark:text-white bg-green-500 py-2 px-4 rounded-md mt-6">
