@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import { Routes, Route } from "react-router-dom"
 
 import { PageWrapper, MainLayout, Loading} from "../components"
-import { HomePage, MediaList } from "../features"
+import { HomePage, MediaRouter  } from "../features"
 
 
 
@@ -26,9 +26,9 @@ export const AppRouter = () => {
                             }
                         />
                         <Route
-                            path="/movie/*"
+                            path="/media/*"
                             element={<PageWrapper>
-                                        <MediaList/>
+                                        <MediaRouter/>
                                     </PageWrapper>
                             }
                         />

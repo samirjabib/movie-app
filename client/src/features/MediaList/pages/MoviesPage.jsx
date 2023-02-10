@@ -1,9 +1,9 @@
-import {MediaList } from "../components"
+import { MediaList } from "../components"
 
 export const MoviesPage = () => {
     return(
         <div>
-            <MediaList/>
+            <MediaList mediaType={"movie"}/>
         </div>
     )
 }

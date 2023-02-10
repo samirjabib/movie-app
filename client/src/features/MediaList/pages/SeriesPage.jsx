@@ -1,11 +1,11 @@
-import {MediaList } from "../components"
+import { MediaList } from "../components"
 
 
 
 export const SeriesPage = () => {
     return(
         <div>
-            <MediaList/>
+            <MediaList mediaType={"tv"}/>
         </div>
     )
 }
