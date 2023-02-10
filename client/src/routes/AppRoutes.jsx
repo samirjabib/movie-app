@@ -1,51 +1,43 @@
+import { Suspense } from "react"
 import { Routes, Route } from "react-router-dom"
 
-import { PageWrapper, MainLayout} from "../components"
+import { PageWrapper, MainLayout, Loading} from "../components"
+import { HomePage, MediaList } from "../features"
 
-import { routes } from "./routes"
 
 
 export const AppRouter = () => {
 
     return(
         <>
+        <Suspense fallback={<Loading/>}>
             <Routes>
-                <Route 
+                <Route
                     path="/"
                     element={<MainLayout/>}
                 >
-                    {
-                        routes.map( (route, index) => (
-                            route.index 
-                                ? (
-                                    <Route
-                                        index
-                                        key={index}
-                                        element={route.state ? 
-                                            (
-                                            <PageWrapper>
-                                                {route.element}
-                                            </PageWrapper>
-                                            ) : route.element
-                                        }
-                                    />
-                                ) : (
-                                    <Route
-                                        key={index}
-                                        element={route.state ? 
-                                            (
-                                            <PageWrapper>
-                                                {route.element}
-                                            </PageWrapper>
-                                            ) : route.element
-                                        }
-                                        />
-                                    )
-                            )
-                        )
-                    }
+                    <>
+                        <Route
+                            index
+                            path="/"
+                            element={<PageWrapper>
+                                        <HomePage/>
+                                    </PageWrapper>
+                            }
+                        />
+                        <Route
+                            path="/movie/*"
+                            element={<PageWrapper>
+                                        <MediaList/>
+                                    </PageWrapper>
+                            }
+                        />
+                            
+                    </>
+                   
                 </Route>
             </Routes>
+        </Suspense>
         </>
     )
 }

@@ -9,7 +9,6 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType, mediaCategory, page:1 })
 
     const popularMovies = data?.response.results
-    console.log(popularMovies)
 
     return(
         <div className="container mx-auto mt-14 ">
@@ -24,10 +23,10 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
                     popularMovies?.map( movie => {
                             return(
                                 <SwiperSlide
+                                key={movie.id}
                                 >
                                     <CardItem
                                         movie={movie}
-                                        key={movie.id}
                                         
                                     />
                                 </SwiperSlide>
