@@ -2,21 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 export const appStateSlice = createSlice({
-    name:"AppState",
+    name:"app",
     initialState:{
         appState:"",
         openNav:null
     },
     reducers:{
-        setAppState: (state, { paylaod }) => {
-            state.appState = paylaod
-        }
+        setOpenNav : ( state, { payload }) => {
+           state.openNav = payload  
+        },
     }
 })
 
 
 export const {
-    setAppState
+    setOpenNav
 } = appStateSlice.actions;
 
 
