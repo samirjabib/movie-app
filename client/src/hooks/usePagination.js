@@ -3,7 +3,7 @@ import { useState } from "react"
 export const usePagination = () => {
 
   const [ page, setPage ] = useState(1)
-  const [ itemPerPage, setItemPerPage ] = useState(8)
+  const [ itemPerPage, setItemPerPage ] = useState(20)
   const initialItem = (page - 1) * itemPerPage
   const finalItem =  page * itemPerPage
   
@@ -15,6 +15,6 @@ export const usePagination = () => {
     finalItem
 
     //Methods
-    
+
   }
 }

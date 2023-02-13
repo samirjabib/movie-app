@@ -17,6 +17,7 @@ export const MediaList = ({mediaType, title}) => {
 
     const response = data?.response
     const mediaList = response?.results
+
     console.log(response)
 
 
@@ -66,7 +67,11 @@ export const MediaList = ({mediaType, title}) => {
                 }
             </div>
 
-            <Pagination/>
+            <Pagination
+                page={page}
+                totalPages={response?.total_pages}
+            
+            />
         </div>
     )
 }
