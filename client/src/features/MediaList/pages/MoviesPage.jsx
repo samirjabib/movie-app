@@ -8,15 +8,15 @@ export const MoviesPage = () => {
     
 
     return(
-        <>
-            <HeroSlide 
+        <div className="h-auto border-[.1px] border-white dark:border-black">
+            {/* <HeroSlide 
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
-            />
+            /> */}
             <MediaList
                mediaType={tmdbConfigs.mediaType.movie}
                title="Movies"
             />
-        </>
+        </div>
     )
 }

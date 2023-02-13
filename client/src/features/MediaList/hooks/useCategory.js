@@ -6,9 +6,9 @@ export const useCategory = () => {
     const setCategory = () => {
         console.log('hice click')
         if(mediaCategory === "popular"){
-            setMediaCategory("top rated")
+            setMediaCategory("top_rated")
         }
-        if(mediaCategory === "top rated"){
+        if(mediaCategory === "top_rated"){
             setMediaCategory("popular")
         }
     }

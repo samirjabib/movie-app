@@ -6,6 +6,7 @@ import { useCategory } from "../hooks"
 export const MediaList = ({mediaType, title}) => {
     
     const { mediaCategory, setCategory} = useCategory()
+    console.log(mediaCategory)
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType , mediaCategory, page:1 })
 
 
@@ -17,10 +18,10 @@ export const MediaList = ({mediaType, title}) => {
     const mediaList = response?.results
 
     return(
-        <div className=" container mx-auto ">
-            <div className="flex justify-between w-full">
+        <div className=" container mx-auto relative top-32">
+            <div className="flex justify-between w-full items-center mb-4">
                 <h2
-                    className="uppercase text-lg text-black dark:text-white font-semibold"
+                    className="uppercase text-2xl text-black dark:text-white font-semibold"
                 >
                     {title}
                 </h2>
