@@ -3,7 +3,6 @@ import { MoviesPage, SeriesPage } from "../pages"
 
 export const MediaRouter = () => {
     return(
-        <>
         <Routes>
             <Route 
                 element={<MoviesPage/>}
@@ -14,7 +13,6 @@ export const MediaRouter = () => {
                 path="series"
             />
         </Routes>
-        </>
     )
 
 }

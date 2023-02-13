@@ -13,7 +13,7 @@ export const MainLayout = () => {
     return (
         <>  
                 <div
-                    className="h-screen bg-white dark:bg-black"
+                    className="bg-white dark:bg-black "
                 >
                     <Header auth={auth}/>
                     <Outlet/>

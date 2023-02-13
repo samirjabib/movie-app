@@ -1,3 +1,5 @@
+import { CardItem } from "../../../components/CardItem"
+import { Loading } from "../../../components/Loading/Loading"
 import { useGetPopularMoviesQuery  } from "../../../redux"
 import { useCategory } from "../hooks"
 
@@ -5,11 +7,17 @@ export const MediaList = ({mediaType, title}) => {
     
     const { mediaCategory, setCategory} = useCategory()
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType , mediaCategory, page:1 })
-    console.log(data)
 
+
+    if(isLoading){
+        return <Loading/>
+    }
+
+    const response = data?.response
+    const mediaList = response?.results
 
     return(
-        <div className=" container mx-auto mt-12">
+        <div className=" container mx-auto ">
             <div className="flex justify-between w-full">
                 <h2
                     className="uppercase text-lg text-black dark:text-white font-semibold"
@@ -30,9 +38,21 @@ export const MediaList = ({mediaType, title}) => {
                     >
                         top rated
                     </button>
-
                 </div>
             </div>
+            <div
+                 className="grid grid-cols-4 "    
+            >
+                {
+                    mediaList.map( media => {
+                        return(
+                        
+                                <CardItem movie={media} key={media.id}/>
+                        )
+                    })
+                }
+            </div>
+         
         </div>
     )
 }
