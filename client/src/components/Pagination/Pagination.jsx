@@ -45,7 +45,7 @@ export const Pagination = ({page, totalPages, setPage}) => {
 
 
     return (
-        <div className=' mt-12 w-80 mx-auto '>
+        <div className=' mt-12 w-80 mx-auto text-xs'>
         <ul className='flex justify-between bg-green-100 dark:bg-[#131313] h-12 items-center w-full rounded-full px-7 '>
             <li
                 onClick={handlePreviousPage}

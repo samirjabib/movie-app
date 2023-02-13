@@ -24,8 +24,7 @@ export const useProviderTheme = () => {
     const handleThemeSwitch = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     };
-    
-    
+ 
     
     return{
         handleThemeSwitch,
