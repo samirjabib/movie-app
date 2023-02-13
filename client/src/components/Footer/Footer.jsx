@@ -15,10 +15,7 @@ const footerLinks = [
         display:'Series',
         path:'/media/series'
     },
-    {
-        display:'Search',
-        path:'/media/series'
-    }
+  
 ]
 
 export const Footer = ({auth}) => {
