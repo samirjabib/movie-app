@@ -11,7 +11,10 @@ export const SeriesPage = () => {
             mediaType={tmdbConfigs.mediaType.tv}
             mediaCategory={tmdbConfigs.mediaCategory.popular}
         />
-        <MediaList mediaType={"movie"}/>
+       <MediaList
+               mediaType={tmdbConfigs.mediaType.tv}
+               title="Series"
+        />
     </>
     )
 }

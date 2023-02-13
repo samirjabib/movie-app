@@ -13,11 +13,11 @@ export const MainLayout = () => {
     return (
         <>  
                 <div
-                    className="h-screen"
+                    className="h-screen bg-white dark:bg-black"
                 >
                     <Header auth={auth}/>
                     <Outlet/>
-                    {/* <Footer/> */}
+                    <Footer/>
 
                 </div>
         </>

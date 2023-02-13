@@ -14,8 +14,6 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType, mediaCategory, page:1 })
     const { data:categories, isLoading:isLoadingCategories, isError:isErrorCategories } = useGetCategoriesMoviesQuery({mediaType})
 
-    console.log(data)
-
     const arrayCategories = categories?.response.genres
 
     const popularMovies = data?.response.results

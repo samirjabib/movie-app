@@ -5,13 +5,18 @@ import { MediaList } from "../components"
 
 
 export const MoviesPage = () => {
+    
+
     return(
         <>
             <HeroSlide 
                 mediaType={tmdbConfigs.mediaType.movie}
                 mediaCategory={tmdbConfigs.mediaCategory.popular}
             />
-            <MediaList mediaType={"movie"}/>
+            <MediaList
+               mediaType={tmdbConfigs.mediaType.movie}
+               title="Movies"
+            />
         </>
     )
 }
