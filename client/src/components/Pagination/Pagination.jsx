@@ -49,7 +49,7 @@ export const Pagination = ({page, totalPages, setPage}) => {
         <ul className='flex justify-between bg-green-100 dark:bg-[#131313] h-12 items-center w-full rounded-full px-7 '>
             <li
                 onClick={handlePreviousPage} 
-                className="text-black dark:text-white mr-2 cursor-pointer"
+                className="text-black dark:text-white mr-2 cursor-pointer relative right-2"
 
             >
                 Prev
@@ -67,7 +67,7 @@ export const Pagination = ({page, totalPages, setPage}) => {
           }
             <li
                 onClick={handleNextPage}
-                className="text-black dark:text-white ml-2 cursor-pointer"
+                className="text-black dark:text-white ml-2 cursor-pointer relative left-2"
             >
                 Next
             </li>

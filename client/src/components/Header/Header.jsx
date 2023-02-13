@@ -24,11 +24,11 @@ export const Header = ({auth}) => {
                     <ul className="gap-4 self-center hidden md:flex">
                         <NavLinks navLinks={navLinks}/>
                         <button 
-                        className="duration-100 transition-all rounded-full delay-100 hover:bg-green-500 relative bottom-[1px]"
+                        className="duration-100 transition-all rounded-full delay-100 hover:bg-green-500 relative bottom-[.5px]"
                         onClick={handleThemeSwitch}
                         >
                             <MdOutlineDarkMode 
-                                size={24}
+                                size={20}
                                 color={`${ (theme === 'light') ? '#000000' : '#fff'}`}
                             />
                         </button>
