@@ -1,6 +1,5 @@
 
 export const Pagination = ({page, totalPages, setPage}) => {
-    console.log(page)
     
     const pagesPerBlock = 6
     const currentBlock = Math.ceil(page / pagesPerBlock)
@@ -38,8 +37,8 @@ export const Pagination = ({page, totalPages, setPage}) => {
 
 
     return (
-        <div className='bg-blue-500 mt-8'>
-        <ul className=''>
+        <div className='bg-gray-200 mt-8 w-80 mx-auto '>
+        <ul className='flex justify-between'>
             <li  
             className='cursor-pointer' 
             onClick={handlePreviousPage}>

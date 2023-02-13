@@ -8,6 +8,8 @@ import { HomePage, MediaRouter  } from "../features"
 
 export const AppRouter = () => {
 
+
+
     return(
         <>
         <Suspense fallback={<Loading/>}>

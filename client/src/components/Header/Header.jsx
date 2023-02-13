@@ -10,6 +10,7 @@ export const Header = ({auth}) => {
     const { theme, handleThemeSwitch } = useProviderTheme()
     const { backgroundScroll, backgroundHandle } = useBackgroundScroll()
 
+
     return (
         <nav 
             className={`flex z-50 justify-between p-4 fixed top-0 w-full ${backgroundScroll ? 'bg-transparent' : 'bg-white dark:bg-[#131313]'}`}
