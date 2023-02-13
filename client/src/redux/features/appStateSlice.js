@@ -4,8 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const appStateSlice = createSlice({
     name:"app",
     initialState:{
-        appState:"",
-        openNav:null
+        openNav:false
     },
     reducers:{
         setOpenNav : ( state, { payload }) => {

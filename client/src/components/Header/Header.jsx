@@ -1,5 +1,5 @@
 import { MdOutlineDarkMode} from "react-icons/md"
-import { useNavLinks, useProviderTheme } from "../../hooks/";
+import { useAppState, useNavLinks, useProviderTheme } from "../../hooks/";
 import { useBackgroundScroll } from "../../hooks/useBackgroundScroll";
 import { NavLinks } from "./NavLinks";
 
@@ -11,6 +11,8 @@ export const Header = ({auth}) => {
     const navLinks = useNavLinks(auth)
     const { theme, handleThemeSwitch } = useProviderTheme()
     const { backgroundScroll, backgroundHandle } = useBackgroundScroll()
+    const { openNav, onHandleNav } = useAppState()
+    console.log(openNav)
 
     return (
         <nav 
@@ -39,10 +41,11 @@ export const Header = ({auth}) => {
                 Sign In
             </button>
 
-            <span className="self-center md:hidden">
+            <span className="self-center md:hidden cursor-pointer">
                 <AiOutlineMenu 
                     size={22}
                     color="white"
+                    onClick={onHandleNav}
                 />
             </span> 
            
