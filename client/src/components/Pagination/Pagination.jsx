@@ -1,8 +1,13 @@
 import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr'
+import { VscPreview } from 'react-icons/vsc'
+
+import { useProviderTheme } from '../../hooks';
 
 
 
 export const Pagination = ({page, totalPages, setPage}) => {
+
+
     
     const pagesPerBlock = 6
     const currentBlock = Math.ceil(page / pagesPerBlock)
@@ -40,14 +45,14 @@ export const Pagination = ({page, totalPages, setPage}) => {
 
 
     return (
-        <div className=' mt-8 w-[24rem] mx-auto '>
+        <div className=' mt-12 w-80 mx-auto '>
         <ul className='flex justify-between bg-green-100 dark:bg-[#131313] h-12 items-center w-full rounded-full px-7 '>
-            <li  
-                className={`text-black cursor-pointer dark:text-gray-100 ${page === 1  ? 'hidden' : ''}`} 
-                    onClick={handlePreviousPage}>
-                <GrLinkPrevious
-                    color={'#22c55e'}
-                />
+            <li
+                onClick={handlePreviousPage}
+                className="text-black dark:text-white mr-2"
+
+            >
+                Prev
             </li>
           {
             arrPages.map(e => (
@@ -60,14 +65,13 @@ export const Pagination = ({page, totalPages, setPage}) => {
                 </li>
             ))
           }
-          <li 
-            className={`text-black cursor-pointer dark:text-gray-100`} 
-            onClick={handleNextPage}
+            <li
+                onClick={handleNextPage}
+                className="text-black dark:text-white ml-2"
             >
-                <GrLinkNext
-                    color={'#22c55e'}
-                />
+                Next
             </li>
+            
         </ul>
   
       </div>
