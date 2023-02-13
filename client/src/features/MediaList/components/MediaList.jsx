@@ -54,7 +54,7 @@ export const MediaList = ({mediaType, title}) => {
                 </div>
             </div>
             <div
-                 className="grid grid-cols-4 "    
+                 className="grid grid-cols-2 md:grid-cols-4 "    
             >
                 {
                     mediaList.map( media => {
