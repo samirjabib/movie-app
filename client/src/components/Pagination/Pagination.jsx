@@ -45,11 +45,11 @@ export const Pagination = ({page, totalPages, setPage}) => {
 
 
     return (
-        <div className=' mt-12 w-80 mx-auto text-xs'>
+        <div className=' mt-12 w-80 mx-auto text-sm'>
         <ul className='flex justify-between bg-green-100 dark:bg-[#131313] h-12 items-center w-full rounded-full px-7 '>
             <li
-                onClick={handlePreviousPage}
-                className="text-black dark:text-white mr-2"
+                onClick={handlePreviousPage} 
+                className="text-black dark:text-white mr-2 cursor-pointer"
 
             >
                 Prev
@@ -67,7 +67,7 @@ export const Pagination = ({page, totalPages, setPage}) => {
           }
             <li
                 onClick={handleNextPage}
-                className="text-black dark:text-white ml-2"
+                className="text-black dark:text-white ml-2 cursor-pointer"
             >
                 Next
             </li>

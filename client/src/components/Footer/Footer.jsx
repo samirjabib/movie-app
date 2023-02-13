@@ -1,5 +1,25 @@
+import { NavLink } from "react-router-dom";
 import { useNavLinks } from "../../hooks";
-import { NavLinks } from "../Header/NavLinks";
+
+
+const footerLinks = [
+    {
+        display:'Home',
+        path:'/'
+    },
+    {
+        display:'Movies',
+        path:'/media/movies'
+    },
+    {
+        display:'Series',
+        path:'/media/series'
+    },
+    {
+        display:'Search',
+        path:'/media/series'
+    }
+]
 
 export const Footer = ({auth}) => {
 
@@ -10,7 +30,19 @@ export const Footer = ({auth}) => {
           
             <h2 className="font-bold text-2xl self-center  dark:text-white ">Oni<span className="text-green-500">Giri</span></h2>
             <ul className="flex gap-4 self-center mt-4 md:mt-0">
-                <NavLinks navLinks={navLinks}/>
+                {
+                    footerLinks.map( (link, index) => {
+                        return(
+                            <NavLink
+                                key={index}
+                                to={link.path}
+                                className='cursor-pointer text-black dark:text-white text-xs'
+                            >
+                                {link.display}
+                            </NavLink>
+                        )
+                    } )
+                }
             </ul>
         </div>
     );
