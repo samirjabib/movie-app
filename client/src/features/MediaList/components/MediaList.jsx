@@ -27,15 +27,14 @@ export const MediaList = ({mediaType, title}) => {
                 </h2>
                 <div className="flex flex-row gap-2 ">
                     <button
-                        className={`text-black dark:text-white px-6 py-2 rounded-md uppercase transition-all ${(mediaCategory === "popular") ? 'bg-green-500' : 'bg-transparent'} `}
+                        className={`text-black dark:text-white px-6 py-2 rounded-md uppercase transition-all duration-200 ${(mediaCategory === "popular") ? 'bg-green-500' : 'bg-transparent'} `}
                         onClick={setCategory}
                     >
                         popular
                     </button>
                     <button
                         onClick={setCategory}
-                        className={`text-black dark:text-white px-6 py-2 rounded-md uppercase transition-all ${(mediaCategory === "top_rated") ? 'bg-green-500' : 'bg-transparent'} `}
-
+                        className={`text-black dark:text-white px-6 py-2 rounded-md uppercase transition-all duration-200 ${(mediaCategory === "top_rated") ? 'bg-green-500' : 'bg-transparent'} `}
                     >
                         top rated
                     </button>
