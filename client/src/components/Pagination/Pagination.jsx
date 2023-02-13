@@ -1,3 +1,6 @@
+import { GrLinkNext, GrLinkPrevious } from 'react-icons/gr'
+
+
 
 export const Pagination = ({page, totalPages, setPage}) => {
     
@@ -37,17 +40,19 @@ export const Pagination = ({page, totalPages, setPage}) => {
 
 
     return (
-        <div className='bg-gray-200 mt-8 w-80 mx-auto '>
-        <ul className='flex justify-between'>
+        <div className=' mt-8 w-[24rem] mx-auto '>
+        <ul className='flex justify-between bg-green-100 dark:bg-[#131313] h-12 items-center w-full rounded-full px-7 '>
             <li  
-            className='cursor-pointer' 
-            onClick={handlePreviousPage}>
-                Retroceder
+                className={`text-black cursor-pointer dark:text-gray-100 ${page === 1  ? 'hidden' : ''}`} 
+                    onClick={handlePreviousPage}>
+                <GrLinkPrevious
+                    color={'#22c55e'}
+                />
             </li>
           {
             arrPages.map(e => (
                 <li 
-                    className={`${page === e && ""}`} 
+                    className={`text-black dark:text-gray-100 transition-all p-2 rounded-full w-8  h-8 cursor-pointer flex items-center justify-center ${e === page ? 'bg-green-500 font-bold' : 'bg-transparent'}`} 
                     onClick={() => handlePage(e)} 
                     key={e}
                 >
@@ -55,7 +60,14 @@ export const Pagination = ({page, totalPages, setPage}) => {
                 </li>
             ))
           }
-          <li className='' onClick={handleNextPage}>Avanzar</li>
+          <li 
+            className={`text-black cursor-pointer dark:text-gray-100`} 
+            onClick={handleNextPage}
+            >
+                <GrLinkNext
+                    color={'#22c55e'}
+                />
+            </li>
         </ul>
   
       </div>
