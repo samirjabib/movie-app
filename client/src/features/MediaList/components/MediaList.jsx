@@ -1,14 +1,19 @@
 import { useState } from "react"
 import { CardItem } from "../../../components/CardItem"
 import { Loading } from "../../../components/Loading/Loading"
+import { Pagination } from "../../../components"
 import { usePagination } from "../../../hooks"
 import { useGetPopularMoviesQuery  } from "../../../redux"
 import { useCategory } from "../hooks"
 
 export const MediaList = ({mediaType, title}) => {
+
+    const {page, itemPerPage, initialItem, finalItem } = usePagination()
+
+    
     
     const { mediaCategory, setCategory } = useCategory()
-    const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType , mediaCategory, page:1 })
+    const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType , mediaCategory, page })
 
     const response = data?.response
     const mediaList = response?.results
@@ -20,13 +25,6 @@ export const MediaList = ({mediaType, title}) => {
         return <Loading/>
     }
 
-
-    //Pagination Logic
-
-    const [ page, setPage ] = useState(1)
-    const [ itemPerPage, setItemPerPage ] = useState(8)
-    const initialItem = 0
-    const finalItem =  8
 
 
 
@@ -68,6 +66,7 @@ export const MediaList = ({mediaType, title}) => {
                 }
             </div>
 
+            <Pagination/>
         </div>
     )
 }

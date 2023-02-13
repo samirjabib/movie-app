@@ -1,36 +1,20 @@
-import { useState } from "react";
+import { useState } from "react"
 
-export const usePagination = (perPageReords, totalPageRecords) => {
+export const usePagination = () => {
 
-  console.log(perPageReords, totalPageRecords)
+  const [ page, setPage ] = useState(1)
+  const [ itemPerPage, setItemPerPage ] = useState(8)
+  const initialItem = (page - 1) * itemPerPage
+  const finalItem =  page * itemPerPage
+  
+  return{
+    //Variables.
+    page,
+    itemPerPage,
+    initialItem,
+    finalItem
 
-
-
-  const totalPages = Math.ceil(totalPageRecords / perPageReords);
-  console.log(totalPages)
-  const [startPageIndex, setPageIndex] = useState(0);
-    // const [endPageIndex, setEndPageIndex] = useState(perPageReords - 1);
-  // const [currentPageIndex, setCurrentPageIndex] = useState(1);
-
-  // //function
-  // const displayPage = (pageNo) => {
-  //   setCurrentPageIndex(pageNo);
-  //   let end_page_index = perPageReords * pageNo - 1;
-  //   let start_page_index = perPageReords * pageNo - perPageReords;
-  //   setStatrPageIndex(start_page_index);
-
-  //   if (end_page_index > totalPageRecords) {
-  //     setEndPageIndex(totalPageRecords - 1);
-  //   } else {
-  //     setEndPageIndex(end_page_index);
-  //   }
-  // };
-
-  return [
-    // totalPages,
-    // startPageIndex,
-    // endPageIndex,
-    // currentPageIndex,
-    // displayPage,
-  ];
-};
+    //Methods
+    
+  }
+}
