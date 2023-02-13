@@ -8,10 +8,11 @@ import { useCategory } from "../hooks"
 
 export const MediaList = ({mediaType, title}) => {
 
-    const {page, itemPerPage, initialItem, finalItem } = usePagination()
 
     
-    
+
+
+    const { page, setPage } = usePagination()
     const { mediaCategory, setCategory } = useCategory()
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType , mediaCategory, page })
 
@@ -25,8 +26,6 @@ export const MediaList = ({mediaType, title}) => {
     if(isLoading){
         return <Loading/>
     }
-
-
 
 
 
@@ -58,9 +57,8 @@ export const MediaList = ({mediaType, title}) => {
                  className="grid grid-cols-4 "    
             >
                 {
-                    mediaList.slice(initialItem, finalItem ).map( media => {
+                    mediaList.map( media => {
                         return(
-                        
                                 <CardItem movie={media} key={media.id}/>
                         )
                     })
@@ -70,6 +68,7 @@ export const MediaList = ({mediaType, title}) => {
             <Pagination
                 page={page}
                 totalPages={response?.total_pages}
+                setPage={setPage}
             
             />
         </div>
