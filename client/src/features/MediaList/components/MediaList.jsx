@@ -1,21 +1,36 @@
+import { useState } from "react"
 import { CardItem } from "../../../components/CardItem"
 import { Loading } from "../../../components/Loading/Loading"
+import { usePagination } from "../../../hooks"
 import { useGetPopularMoviesQuery  } from "../../../redux"
 import { useCategory } from "../hooks"
 
 export const MediaList = ({mediaType, title}) => {
     
     const { mediaCategory, setCategory } = useCategory()
-    console.log(mediaCategory)
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType , mediaCategory, page:1 })
+
+    const response = data?.response
+    const mediaList = response?.results
+    console.log(response)
+
 
 
     if(isLoading){
         return <Loading/>
     }
 
-    const response = data?.response
-    const mediaList = response?.results
+
+    //Pagination Logic
+
+    const [ page, setPage ] = useState(1)
+    const [ itemPerPage, setItemPerPage ] = useState(8)
+    const initialItem = 0
+    const finalItem =  8
+
+
+
+
 
     return(
         <div className=" container mx-auto relative top-32">
@@ -44,7 +59,7 @@ export const MediaList = ({mediaType, title}) => {
                  className="grid grid-cols-4 "    
             >
                 {
-                    mediaList.map( media => {
+                    mediaList.slice(initialItem, finalItem ).map( media => {
                         return(
                         
                                 <CardItem movie={media} key={media.id}/>
@@ -52,7 +67,7 @@ export const MediaList = ({mediaType, title}) => {
                     })
                 }
             </div>
-         
+
         </div>
     )
 }
