@@ -34,7 +34,7 @@ export const MediaList = ({mediaType, title}) => {
         <div className=" container mx-auto relative top-32">
             <div className="flex justify-between w-full items-center mb-4 flex-col md:flex-row ">
                 <h2
-                    className="uppercase text-2xl text-black dark:text-green-200 font-semibold mb-4 md:mb-0"
+                    className="uppercase relative bottom-8 md:bottom-0 text-2xl text-black dark:text-green-200 font-semibold  md:mb-0"
                 >
                     {title}
                 </h2>
