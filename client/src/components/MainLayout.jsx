@@ -17,7 +17,7 @@ export const MainLayout = () => {
                 >
                     <Header auth={auth}/>
                     <Outlet/>
-                    <Footer/>
+                    {/* <Footer/> */}
 
                 </div>
         </>

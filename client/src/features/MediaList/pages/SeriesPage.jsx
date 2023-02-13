@@ -1,11 +1,17 @@
+import { tmdbConfigs } from "../../../api"
+import { HeroSlide } from "../../Home/components"
 import { MediaList } from "../components"
 
 
 
 export const SeriesPage = () => {
     return(
-        <div>
-            <MediaList mediaType={"tv"}/>
-        </div>
+        <>
+        <HeroSlide 
+            mediaType={tmdbConfigs.mediaType.tv}
+            mediaCategory={tmdbConfigs.mediaCategory.popular}
+        />
+        <MediaList mediaType={"movie"}/>
+    </>
     )
 }

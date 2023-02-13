@@ -5,22 +5,22 @@ const defaultNav = [
     { path:'/', display:'Home'},
     { path:'/media/movies', display:'Movies'},
     { path:'/media/series', display:'Series'},
-    { path:'/search', display:'Search'},
+    { path:'/media/search', display:'Search'},
 
 ]
 
 const authNav = [
     { path:'/', display:'Home'},
-    { path:'/movies', display:'Movies'},
-    { path:'/series', display:'Series'},
-    { path:'/search', display:'Search'},
+    { path:'/media/movies', display:'Movies'},
+    { path:'/media/series', display:'Series'},
+    { path:'/media/search', display:'Search'},
 ]
 
 const adminNav = [
     { path:'/', display:'Home'},
-    { path:'/movies', display:'Movies'},
-    { path:'/series', display:'Series'},
-    { path:'/search', display:'Search'},
+    { path:'/media/movies', display:'Movies'},
+    { path:'/media/series', display:'Series'},
+    { path:'/media/search', display:'Search'},
 ]
 
 

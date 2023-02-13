@@ -14,6 +14,8 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
     const { data, isLoading, isError } = useGetPopularMoviesQuery({ mediaType, mediaCategory, page:1 })
     const { data:categories, isLoading:isLoadingCategories, isError:isErrorCategories } = useGetCategoriesMoviesQuery({mediaType})
 
+    console.log(data)
+
     const arrayCategories = categories?.response.genres
 
     const popularMovies = data?.response.results
@@ -55,7 +57,7 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                     />
                                     <div className="absolute z-50 top-[30%]  left-[7.5%] ">
                                         <h2 className=" text-3xl md:text-5xl text-black dark:text-white font-bold">
-                                            {movie.title}
+                                            {movie.name || movie.title}
                                         </h2>
                                         <div 
                                             className="w-96 flex flex-row mt-2 justify-between"

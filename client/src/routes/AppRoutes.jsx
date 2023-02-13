@@ -1,7 +1,7 @@
 import { Suspense } from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 
-import { PageWrapper, MainLayout, Loading} from "../components"
+import { MainLayout, Loading} from "../components"
 import { HomePage, MediaRouter  } from "../features"
 
 
@@ -16,25 +16,21 @@ export const AppRouter = () => {
                     path="/"
                     element={<MainLayout/>}
                 >
-                    <>
-                        <Route
-                            index
-                            path="/"
-                            element={<PageWrapper>
-                                        <HomePage/>
-                                    </PageWrapper>
-                            }
-                        />
-                        <Route
-                            path="/media/*"
-                            element={<PageWrapper>
-                                        <MediaRouter/>
-                                    </PageWrapper>
-                            }
-                        />
-                            
-                    </>
-                   
+                    <Route
+                        index
+                        path="/"
+                        element={<HomePage/>}
+                    />
+                    <Route
+                        path="/media/*"
+                        element={<MediaRouter/>}
+                    />
+
+                    <Route 
+                        path='/*' 
+                        element={ <Navigate to='/'/>}
+                    />
+                                               
                 </Route>
             </Routes>
         </Suspense>
