@@ -8,7 +8,7 @@ export const tmdbApi = createApi({
 
 
     baseQuery: fetchBaseQuery({
-        baseUrl:"http://localhost:9000/api/v1"
+        baseUrl:"https://backed-movie-app.up.railway.app/api/v1"
     }),
 
     endpoints:(builder) => ({
