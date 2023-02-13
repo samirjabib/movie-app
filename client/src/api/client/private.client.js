@@ -2,7 +2,7 @@ import axios from "axios"
 import queryString from "query-string"
 
 
-const baseURL = "http://localhost:9000/api/v1/"
+const baseURL = "https://backed-movie-app.up.railway.app/"
 
 
 const privateClient = axios.create({
