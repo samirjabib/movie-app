@@ -3,6 +3,8 @@ import { useNavLinks, useProviderTheme } from "../../hooks/";
 import { useBackgroundScroll } from "../../hooks/useBackgroundScroll";
 import { NavLinks } from "./NavLinks";
 
+import { AiOutlineMenu } from "react-icons/ai"
+
 
 export const Header = ({auth}) => {
 
@@ -32,10 +34,17 @@ export const Header = ({auth}) => {
                    
             </div>
             <button 
-                className="bg-green-500 text-sm shadow uppercase rounded-md font-medium dark:text-white px-4 py-2"
+                className="bg-green-500 text-sm shadow uppercase rounded-md font-medium dark:text-white px-4 py-2 hidden md:block"
             >
                 Sign In
             </button>
+
+            <span className="self-center md:hidden">
+                <AiOutlineMenu 
+                    size={22}
+                    color="white"
+                />
+            </span> 
            
         </nav>
     );
