@@ -77,16 +77,16 @@ const getDetail = async(req, res, next) => {
         const { user } = req
 
 
-        // const response = await mediaServices.getDetails(mediaType, mediaId, user)
+        const response = await mediaServices.getDetails(mediaType, mediaId, user)
         
-        // const error = response.stack
-        // if(error){
-        //     return next(response)
-        // }
+        const error = response.stack
+        if(error){
+            return next(response)
+        }
 
         res.status(StatusCodes.OK).json(
-            // response
-            user
+            response
+            
         )
 
     } catch (error){
