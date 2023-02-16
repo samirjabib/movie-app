@@ -13,7 +13,8 @@ const config = {
     JWT_SECRET:process.env.JWT_SECRET,
     TMBD_URL:process.env.TMDB_URL,
     TMDB_TOKEN:process.env.TMDB_TOKEN,
-    TMDB_KEY:process.env.TMDB_KEY
+    TMDB_KEY:process.env.TMDB_KEY,
+    DB_URI:process.env.DB_URI
 }
 
 

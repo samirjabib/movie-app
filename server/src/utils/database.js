@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize')
 const { config } = require('../config')
 
 
-const db = new Sequelize({
+const db = new Sequelize(config.DB_URI,{
     dialect: 'postgres',
     host: config.db.host, //? Variable de entorno del host
     username: config.db.username, //? Variable de entorno del usuario
