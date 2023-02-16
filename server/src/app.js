@@ -70,6 +70,7 @@ app.all('*', (req, res, next) => {
 // Global error Handler
 app.use('*', globalErrorHandler)
 
+const PORT = process.env.port
 
 server.listen( PORT ,() => {
     console.log(`server run on port ${PORT}`)
