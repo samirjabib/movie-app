@@ -4,6 +4,7 @@ const cors = require("cors")
 const http = require("http");
 
 
+
 const { db } = require("./utils/database");
 const { initModels } = require("./models/initModels");
 const { config } = require("./config");
@@ -13,6 +14,9 @@ const {  globalErrorHandler } = require("./helpers/globalErrorHandler")
 const { StatusCodes } = require('http-status-codes')
 
 const app = express();
+
+require('dotenv').config()
+
 
 
 db.authenticate()
@@ -66,8 +70,9 @@ app.all('*', (req, res, next) => {
 // Global error Handler
 app.use('*', globalErrorHandler)
 
+const PORT = process.env.port
+console.log(PORT)
 
-
-server.listen( config.port ,() => {
+server.listen( PORT ,() => {
     console.log(`server run on port ${config.port}`)
 })
