@@ -1,3 +1,4 @@
+const { AppError } = require("../helpers/appError");
 const { verifyToken } = require("../helpers/handleJwt")
 const { Users } = require("../models/sql/user.model")
 
@@ -10,13 +11,17 @@ const authMiddleware = async(req, res, next) => {
         }
 
         const token = req.headers.authorization.split(' ').pop();
-        const dataToken = await verifyToken(token);
-        if(!dataToken.id){
-            return next(new AppError("ERROR_ID_TOKEN", 401));
-        }
+        console.log(token)
 
-        const user = await userModel.findById(dataToken.id)
-        req.user = user
+        const decoded = await verifyToken(token);
+        console.log(decoded)
+
+        // if(!dataToken.id){
+        //     return next(new AppError("ERROR_ID_TOKEN", 401));
+        // }
+
+        // const user = await Users.findById(dataToken.id)
+        // req.user = user
 
         next()
     } catch (error) {

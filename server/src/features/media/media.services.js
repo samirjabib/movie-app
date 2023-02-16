@@ -35,6 +35,8 @@ const getGenres = async( {mediaType }) => {
 const getDetails = async(mediaType, mediaId, user) => {
     const params = { mediaType, mediaId };
 
+    console.log(params)
+
     //Media
     const media = await tmdbApi.mediaDetail(params)
     media.credits = await tmdbApi.mediaCredits(params)

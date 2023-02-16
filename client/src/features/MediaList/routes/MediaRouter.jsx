@@ -10,8 +10,9 @@ export const MediaRouter = () => {
             />
             <Route 
                 element={<SeriesPage/>}
-                path="series"
+                path="/series"
             />
+            
         </Routes>
     )
 
