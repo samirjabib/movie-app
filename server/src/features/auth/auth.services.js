@@ -1,143 +1,117 @@
-const { StatusCodes } = require('http-status-codes')
-const uuid = require("uuid")
+const { StatusCodes } = require("http-status-codes");
+const uuid = require("uuid");
 
 //Handlers
-const { AppError } = require('../../helpers/appError')
-const { encrypt, compare } = require('../../helpers/handlePassword')
-const { tokenSign } = require('../../helpers/handleJwt')
+const { AppError } = require("../../helpers/appError");
+const { encrypt, compare } = require("../../helpers/handlePassword");
+const { tokenSign } = require("../../helpers/handleJwt");
 
 //Models
-const { Users } = require('../../models/sql/user.model')
+const { Users } = require("../../models/sql/user.model");
 
-const register = async(body) => {
+const register = async (body) => {
+  const { displayName, email, password } = body;
 
-    const { displayName, email, password } = body
+  const userExists = await Users.findOne({
+    where: {
+      email,
+    },
+  });
 
-    const userExists = await Users.findOne({
-        where:{
-            email
-        }
-    })
+  if (userExists) {
+    return new AppError("USER_ALREADY_EXIST", StatusCodes.BAD_REQUEST, true);
+  }
 
+  const hashPassword = await encrypt(password);
 
-    if(userExists){
+  const data = await Users.create({
+    id: uuid.v4(),
+    displayName,
+    email,
+    password: hashPassword,
+  });
 
-        return new AppError(
-        'USER_ALREADY_EXIST',
-        StatusCodes.BAD_REQUEST,
-        true
-        )
-    }
+  data.password = undefined;
 
-    const hashPassword = await encrypt(password)
+  const user = {
+    data,
+    token: await tokenSign(data),
+  };
 
-    const data = await Users.create({
-        id:uuid.v4(),
-        displayName,
-        email,
-        password: hashPassword
-    })
+  return user;
+};
 
-    data.password = undefined
+const login = async (body) => {
+  const data = await Users.findOne({
+    where: {
+      email: body.email,
+      status: "active",
+    },
+  });
 
-    const user = {
-        data,
-        token: await tokenSign(data)
-    }
+  console.log(data);
 
-    return user
-}
+  if (!data) {
+    return new AppError("USER_OR_PASSWORD_FAIL", StatusCodes.BAD_REQUEST, true);
+  }
 
+  const { password: hashPassword } = data;
 
-const login = async(body) => {
+  const samePasswords = await compare(body.password, hashPassword);
 
-    const data = await Users.findOne({
-        where:{
-            email:body.email,
-            status:"active"
-        }
-    })
+  if (!samePasswords) {
+    return new AppError(
+      "THE PASSWORD DONT MATCH",
+      StatusCodes.BAD_REQUEST,
+      true
+    );
+  }
 
-    console.log(data)
+  data.password = undefined;
 
-    if(!data){
-        return new AppError(
-            'USER_OR_PASSWORD_FAIL',
-            StatusCodes.BAD_REQUEST,
-            true
-        )
-    }
+  return {
+    data,
+    token: await tokenSign(data),
+  };
+};
 
-    const { password: hashPassword } = data
+const getInfo = async (id) => {
+  const data = await Users.findOne({
+    where: {
+      id,
+      status: "active",
+    },
+  });
 
-    const samePasswords = await compare( body.password, hashPassword)
+  data.password = undefined;
 
-    if(!samePasswords){
-        return new AppError(
-            'THE PASSWORD DONT MATCH',
-            StatusCodes.BAD_REQUEST,
-            true
-        )
-    }
+  return data;
+};
 
-    data.password = undefined
+const updatePassword = async (body) => {
+  const { id, password, newPassword } = body;
 
-    return{
-        data,
-        token: await tokenSign(data)
-    }
+  const data = await Users.findOne({
+    where: {
+      id,
+      status: "active",
+    },
+  });
 
-}
+  const samePasswords = await compare(password, data.password);
 
+  if (!samePasswords) {
+    new AppError("PASSWORDS DONT MATCH", StatusCodes.BAD_REQUEST, true);
+  }
 
-const getInfo = async(id) => {
-    const data = await Users.findOne({
-        where:{
-            id,
-            status:"active"
-        }
-    });
+  //TODO TERMINAR FUNCIONALIDAD
 
-    data.password = undefined
-
-    return data
-}
-
-
-const updatePassword = async(body) => {
-    
-    const { id, password, newPassword } = body 
-
-
-      const data = await Users.findOne({
-        where:{
-            id,
-            status:"active"
-        }
-    })
-
-    const samePasswords = await compare(password, data.password)
-
-    if(!samePasswords){
-        new AppError(
-            'PASSWORDS DONT MATCH',
-            StatusCodes.BAD_REQUEST,
-            true
-        )
-    }
-
-
-    //TODO TERMINAR FUNCIONALIDAD
-
-
-    return data
-
-}
-
+  return data;
+};
 
 module.exports = {
-    login,
-    register,
-    getInfo,
-    updatePassword,
-}
+  login,
+  register,
+  getInfo,
+  updatePassword,
+};

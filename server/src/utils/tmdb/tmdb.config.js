@@ -3,13 +3,10 @@ const { config } = require("../../config");
 const baseUrl = config.TMBD_URL;
 const key = config.TMDB_KEY;
 
-
-
-
 const getUrl = (endpoint, params) => {
   const qs = new URLSearchParams(params);
-  console.log(qs)
+  console.log(qs);
 
   return `${baseUrl}${endpoint}?api_key=${key}&${qs}`;
 };
-module.exports = { getUrl }
+module.exports = { getUrl };

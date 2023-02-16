@@ -1,15 +1,14 @@
-const axios = require("axios")
+const axios = require("axios");
 
+const get = async (url) => {
+  const response = await axios.get(url, {
+    headers: {
+      Accept: "application/json",
+      "Accept-Encoding": "identity",
+    },
+  });
 
-const get = async(url) => {
-    const response = await axios.get(url,{
-        headers:{
-            Accept: "application/json",
-            "Accept-Encoding": "identity"
-        }
-    })
+  return response.data;
+};
 
-    return response.data
-}
-
-module.exports = { get } 
+module.exports = { get };
