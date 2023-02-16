@@ -60,15 +60,15 @@ const getDetails = async(mediaType, mediaId, user) => {
     // }
 
 
-    //Reviews
+    // Reviews
     // media.reviews = await Reviews.findAll({
     //     where:mediaId,
     //     include:[{
     //         model:Users,
     //         attributes:['createdAt']
-    //     }]
+    //     }]   
     // })
-
+    
     
 
     return media
