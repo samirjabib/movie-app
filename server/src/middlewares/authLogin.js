@@ -14,14 +14,18 @@ const authMiddleware = async(req, res, next) => {
         console.log(token)
 
         const decoded = await verifyToken(token);
-        console.log(decoded)
 
-        // if(!dataToken.id){
-        //     return next(new AppError("ERROR_ID_TOKEN", 401));
-        // }
+        if(!decoded.id){
+            return next(new AppError("ERROR_ID_TOKEN", 401));
+        }
 
-        // const user = await Users.findById(dataToken.id)
-        // req.user = user
+        const user = await Users.findOne({
+            where:{
+                id:decoded.id,
+                status:'active'
+            }
+        })
+        req.user = user
 
         next()
     } catch (error) {
