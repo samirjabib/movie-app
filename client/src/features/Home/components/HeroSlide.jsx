@@ -10,6 +10,7 @@ import {
 
 import { tmdbConfigs } from "../../../api";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export const HeroSlide = ({ mediaType, mediaCategory }) => {
   const { data, isLoading, isError } = useGetPopularMoviesQuery({
@@ -27,6 +28,13 @@ export const HeroSlide = ({ mediaType, mediaCategory }) => {
 
   const popularMovies = data?.response.results;
 
+
+    useEffect( () => {
+    window.scrollTo(0, 0)
+  }, [isLoading])
+
+
+  
   if (isLoading) {
     return <Loading />;
   }

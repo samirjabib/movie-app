@@ -4,6 +4,7 @@ import { Pagination } from "../../../components";
 import { usePagination } from "../../../hooks";
 import { useGetPopularMoviesQuery } from "../../../redux";
 import { useCategory } from "../hooks";
+import { useEffect } from "react";
 
 export const MediaList = ({ mediaType, title }) => {
   const { page, setPage } = usePagination();
@@ -16,10 +17,18 @@ export const MediaList = ({ mediaType, title }) => {
 
   const response = data?.response;
   const mediaList = response?.results;
+  
+  useEffect( () => {
+    window.scrollTo(0, 0)
+  }, [isLoading])
+
+
 
   if (isLoading) {
     return <Loading />;
   }
+
+  
 
   return (
     <div className=" container mx-auto relative top-32">
