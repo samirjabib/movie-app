@@ -27,6 +27,7 @@ export const MediaSlide = ({title, mediaType, mediaCategory}) => {
                                 >
                                     <CardItem
                                         movie={movie}
+                                        mediaType={mediaType}
                                         
                                     />
                                 </SwiperSlide>

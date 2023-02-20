@@ -8,7 +8,7 @@ import { useCategory } from "../hooks"
 
 export const MediaList = ({mediaType, title}) => {
 
-
+    console.log(mediaType)
     
 
 
@@ -59,7 +59,11 @@ export const MediaList = ({mediaType, title}) => {
                 {
                     mediaList.map( media => {
                         return(
-                                <CardItem movie={media} key={media.id}/>
+                                <CardItem 
+                                    movie={media} 
+                                    key={media.id}
+                                    mediaType={mediaType} 
+                                    />
                         )
                     })
                 }

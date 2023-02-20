@@ -8,6 +8,7 @@ import 'swiper/css';
 import { useGetPopularMoviesQuery, useGetCategoriesMoviesQuery } from "../../../redux"
 
 import { tmdbConfigs } from "../../../api";
+import { Link } from "react-router-dom";
 
 export const HeroSlide = ({ mediaType, mediaCategory}) => {
 
@@ -89,7 +90,11 @@ export const HeroSlide = ({ mediaType, mediaCategory}) => {
                                             {reducedString(movie.overview, 250)}
                                         </p>
                                         <button className="uppercase text-black dark:text-white bg-green-500 py-2 px-4 rounded-md mt-6">
-                                            Watch Now
+                                            <Link
+                                                to={`/${mediaType}/${movie.id}`}
+                                            >
+                                                Watch Now
+                                            </Link>
                                         </button>
                                     </div>
                                 </div>

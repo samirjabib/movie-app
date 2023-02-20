@@ -1,9 +1,11 @@
 import { tmdbConfigs } from "../../api"
+import { Link } from "react-router-dom"
 
+export const CardItem = ({movie, mediaType}) => {
 
-export const CardItem = ({movie}) => {
-
+    console.log(movie)
     return(
+        <Link to={`/${mediaType}/${movie.id}`}>
             <div className="mt-2 h-full transition-all relative hover:scale-95" >
                  <img
                     src={tmdbConfigs.backdropPath(movie.poster_path || movie.backdrop_path )}
@@ -29,5 +31,6 @@ export const CardItem = ({movie}) => {
                
                 </div>
             </div>
+        </Link>
     )
 }

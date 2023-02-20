@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router"
-import { MoviesPage, SeriesPage } from "../pages"
+import { MoviesPage, SeriesPage, DetailMediaPage } from "../pages"
 
 export const MediaRouter = () => {
     return(
@@ -11,6 +11,10 @@ export const MediaRouter = () => {
             <Route 
                 element={<SeriesPage/>}
                 path="/series"
+            />
+            <Route
+                element={<DetailMediaPage/>}
+                path='/:mediaType/:id'
             />
             
         </Routes>
