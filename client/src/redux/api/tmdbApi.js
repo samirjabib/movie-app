@@ -21,8 +21,7 @@ export const tmdbApi = createApi({
             query: ({ mediaType }) => `/${mediaType}/genres`
         }),
         getDetailMedia : builder.query({
-            query: ({ mediaType, mediaId }) => `/${mediaType}/${mediaId}`
-
+            query: ({ mediaType, mediaId }) =>`/${mediaType}/detail/${mediaId}`
         })
 
     })

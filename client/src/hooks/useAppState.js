@@ -1,20 +1,18 @@
-import { useDispatch, useSelector } from "react-redux"
-import { setOpenNav } from "../redux"
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenNav } from "../redux";
 
 export const useAppState = () => {
+  const { openNav } = useSelector((state) => state.appState);
 
-    const { openNav } = useSelector( state => state.appState )
+  const dispatch = useDispatch();
 
-    console.log(openNav)
-    const dispatch = useDispatch()
+  const onHandleNav = () => {
+    dispatch(setOpenNav(!openNav));
+  };
 
-    const onHandleNav = () => {
-        dispatch(setOpenNav(!openNav))
-    }
+  return {
+    openNav,
 
-    return{
-        openNav,
-
-        onHandleNav
-    }
-}
+    onHandleNav,
+  };
+};
