@@ -1,5 +1,5 @@
 import { tmdbConfigs } from "../../api";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const CardItem = ({ movie, mediaType }) => {
   const navigate = useNavigate();
@@ -7,7 +7,6 @@ export const CardItem = ({ movie, mediaType }) => {
 
   const openMediaDetailPage = () => {
     navigate(`media/${mediaType}/${movie.id}`,{
-        
     });
   };
 
