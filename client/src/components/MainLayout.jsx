@@ -16,9 +16,8 @@ export const MainLayout = () => {
                     className="bg-white dark:bg-black "
                 >
                     <Header auth={auth}/>
-                    <Outlet/>
+                        <Outlet/>
                     <Footer auth={auth}/>
-
                 </div>
         </>
     );
