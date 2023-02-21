@@ -101,7 +101,7 @@ export const DetailMediaPage = () => {
           />
         </div>
 
-        <div className="border-2 border-yellow-400 h-72 w-full z-50">
+        <div className=" h-72 w-full z-50">
           <VideoComponent/>
         </div>
         
