@@ -82,7 +82,7 @@ export const DetailMediaPage = () => {
                 slidesPerView="auto"
                 grabCursor={true}
                 style={{ width: "100%", height: "max-content" }}
-                className="grid  grid-cols-3 sm:grid-cols-4 md:grid-cols-6 p-2 "
+                className="grid  grid-cols-3 sm:grid-cols-4 md:grid-cols-6 p-4  "
               >
                 {movie.credits.cast.map((actor) => (
                   <SwiperSlide key={movie.id}>
