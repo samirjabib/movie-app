@@ -6,7 +6,7 @@ import { useGetDetailMediaQuery } from "../../../redux/api/tmdbApi";
 
 import { SwiperSlide } from "swiper/react";
 import { Swiper } from "swiper/react";
-import { ActorsCard } from "../components";
+import { ActorsCard, VideoComponent } from "../components";
 
 export const DetailMediaPage = () => {
   const { mediaType, id: mediaId } = useParams();
@@ -30,15 +30,15 @@ export const DetailMediaPage = () => {
   console.log(movie);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <img
         src={tmdbConfigs.backdropPath(
           movie?.backdrop_path || movie?.poster_path
         )}
-        className="absolute h-auto w-full object-cover top-0"
+        className="absolute h-full   w-full object-cover top-0"
       />
-      <div className="w-full h-full  absolute from-white bg-white/50 dark:bg-black/70"></div>
-      <div className="relative flex flex-col container mx-auto">
+      <div className="w-full  h-full  absolute from-white bg-white/50 dark:bg-black/70"></div>
+      <div className="relative flex flex-col container mx-auto ">
         <div className=" mt-24 w-full p-4 flex flex-col-reverse items-center md:flex-row-reverse md:justify-end md:items-start ">
           <div className="flex flex-col w-4/4 md:w-3/4 mt-8 p-4">
             <h2 className=" text-3xl md:text-4xl text-black dark:text-white text-center font-bold  md:text-start w-4/4  ">
@@ -101,9 +101,10 @@ export const DetailMediaPage = () => {
           />
         </div>
 
-        <div className="border-2 border-yellow-400 h-72 w-full z-50">jeje</div>
-        <div className="border-2 border-yellow-400 h-72 w-full z-50">jeje</div>
-
+        <div className="border-2 border-yellow-400 h-72 w-full z-50">
+          <VideoComponent/>
+        </div>
+        
       </div>
     </div>
   );
