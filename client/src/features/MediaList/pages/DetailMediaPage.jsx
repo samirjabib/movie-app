@@ -4,6 +4,10 @@ import { tmdbConfigs } from "../../../api";
 import { Loading } from "../../../components/Loading/Loading";
 import { useGetDetailMediaQuery } from "../../../redux/api/tmdbApi";
 
+import { SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
+import { ActorsCard } from "../components";
+
 export const DetailMediaPage = () => {
   const { mediaType, id: mediaId } = useParams();
 
@@ -13,23 +17,20 @@ export const DetailMediaPage = () => {
     isError,
   } = useGetDetailMediaQuery({ mediaType, mediaId });
 
-  useEffect( () => {
-    window.scrollTo(0, 0)
-  }, [isLoading])
+  console.log(movie)
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [isLoading]);
 
   if (isLoading) {
     return <Loading />;
   }
 
-
-
-
-
   console.log(movie);
 
   return (
-    <div className="relative h-[150vh]">
+    <div className="relative h-[200vh]">
       <div className="w-full h-full  absolute from-white bg-white/50 dark:bg-black/70"></div>
       <img
         src={tmdbConfigs.backdropPath(
@@ -58,24 +59,43 @@ export const DetailMediaPage = () => {
                 {movie.vote_average}
               </p>
             </div>
+
             <ul className="flex flex-row justify-end md:justify-start gap-4">
               {movie?.genres.map((genre) => (
-                <p key={genre.id} className="text-gray-500 dark:text-green-200 text-xs md:text-sm  relative  ">
+                <p
+                  key={genre.id}
+                  className="text-gray-500 dark:text-green-200 text-xs md:text-sm  relative  "
+                >
                   {genre.name}
                 </p>
               ))}
             </ul>
           </div>
+
           <p className="text-start dark:text-white">{movie.overview}</p>
+          <div className="mt-12 max-w-2xl">
+            <h4 className="text-dark dark:text-white font-semibold uppercase mb-2">Actors in movie</h4>
+            <Swiper
+              slidesPerView="auto"
+              grabCursor={true}
+              style={{ width: "100%", height: "max-content" }}
+              className="grid  grid-cols-3 sm:grid-cols-4 md:grid-cols-6 p-2 "
+            >
+              {movie.credits.cast.map((actor) => (
+                <SwiperSlide key={movie.id}>
+                  <ActorsCard actor={actor} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
         <img
           src={tmdbConfigs.backdropPath(
             movie?.poster_path || movie?.backdrop_path
           )}
           alt={movie.title}
-          className="object-fill h-full rounded-lg border-transparent w-56 md:w-96  shadow-sm shadow-dark mt-6 "
+          className="object-fill  rounded-lg border-transparent w-56 md:w-96  shadow-sm shadow-dark mt-6 "
         />
-        <div></div>
       </div>
     </div>
   );
