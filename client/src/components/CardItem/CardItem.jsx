@@ -6,8 +6,8 @@ export const CardItem = ({ movie, mediaType }) => {
 
 
   const openMediaDetailPage = () => {
-    navigate(`media/${mediaType}/${movie.id}`,{
-    });
+      navigate(`/media/${mediaType}/${movie.id}`);
+
   };
 
   return (
@@ -27,7 +27,7 @@ export const CardItem = ({ movie, mediaType }) => {
                     justify-end"
       >
         <div className="mb-6 ml-2">
-          <p>{movie.name || movie.title}</p>
+          <p>{movie?.name || movie?.title}</p>
           <div className="flex flex-row ">
             <svg
               aria-hidden="true"
