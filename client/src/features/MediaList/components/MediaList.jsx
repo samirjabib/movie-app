@@ -17,18 +17,14 @@ export const MediaList = ({ mediaType, title }) => {
 
   const response = data?.response;
   const mediaList = response?.results;
-  
-  useEffect( () => {
-    window.scrollTo(0, 0)
-  }, [isLoading])
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [isLoading]);
 
   if (isLoading) {
     return <Loading />;
   }
-
-  
 
   return (
     <div className=" container mx-auto relative top-32">
@@ -62,12 +58,13 @@ export const MediaList = ({ mediaType, title }) => {
           );
         })}
       </div>
-
-      <Pagination
-        page={page}
-        totalPages={response?.total_pages}
-        setPage={setPage}
-      />
+      <div className="w-full mx-auto mb-4">
+          <Pagination
+            page={page}
+            totalPages={response?.total_pages}
+            setPage={setPage}
+          />
+        </div>
     </div>
   );
 };
