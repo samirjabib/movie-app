@@ -58,7 +58,7 @@ export const MediaList = ({ mediaType, title }) => {
           );
         })}
       </div>
-      <div className="w-full mx-auto mb-4">
+      <div className="w-full mx-auto mb-8 h-44 overflow-hidden mt-24 relative bottom-12">
           <Pagination
             page={page}
             totalPages={response?.total_pages}
